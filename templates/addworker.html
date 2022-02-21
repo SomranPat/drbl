@@ -18,16 +18,18 @@
     <main class="page-center">
         <article class="sign-up">
             <h1 class="sign-up__title">Add New Worker</h1>            
-            <form class="sign-up-form form" action="POST" method="">
+            <form class="sign-up-form form" action="" method="POST">
                 {% csrf_token %}
+                
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Name</p>
-                    <input class="form-input" type="text" placeholder="Enter Worker's name" required>
+                    {{form.name}}
 
                 </label>
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Type</p>
-                    <input class="form-input" list="worker_type" type="text" placeholder="Enter Worker's Type"
+                    {{form.category}}
+                    <!-- <input class="form-input" list="worker_type" type="text" placeholder="Enter Worker's Type"
                         required>
                     <datalist id="worker_type">
                         <option value="Carpenter">
@@ -41,25 +43,33 @@
                         <option value="Concrete Finisher">
                         <option value="Painter">
                         <option value="Other">
-                    </datalist>
+                    </datalist> -->
                 </label>
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Address</p>
-                    <input class="form-input" type="text" placeholder="Enter Worker's Address" required>
+                    {{form.wadd}}
+                    <!-- <input class="form-input" type="text" placeholder="Enter Worker's Address" required> -->
 
                 </label>
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Contact no.</p>
-                    <input class="form-input" type="tel" placeholder="Enter Worker's Contact no." pattern="[0-9]{10}" required>
+                    {{form.wcontact}}
+                    <!-- <input class="form-input" type="tel" placeholder="Enter Worker's Contact no." pattern="[0-9]{10}" required> -->
 
                 </label>
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Salary</p>
-                    <input class="form-input" type="number" placeholder="Enter per Day Salary" required>
+                    {{form.spd}}
+                    <!-- <input class="form-input" type="number" placeholder="Enter per Day Salary" required> -->
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Age</p>
+                    {{form.age}}
+                    <!-- <input class="form-input" type="number" placeholder="Enter per Day Salary" required> -->
                 </label>
                 
                 <br/>
-                <button class="form-btn primary-default-btn transparent-btn">Add Worker</button>
+                <input type="submit" name="add worker">
             </form>
         </article>
     </main>

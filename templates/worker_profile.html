@@ -81,7 +81,7 @@
                     <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
                 </li>
                 <li>
-                  <a href="appearance.html"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
+                  <a href="{% url 'logout' %}"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
                 </li>
             </ul>
         </div>
@@ -148,7 +148,7 @@
                 <div class="stat-cards-info-workers">
                     <p class="stat-cards-info__name-workers">{{worker_profile.name}}</p>
                     <p class="stat-cards-info__title-workers">{{worker_profile.category}}</p>
-                    <!-- <p class="stat-cards-info__title-workers">Ag</p> -->
+                    <p class="stat-cards-info__title-workers">Age :{{worker_profile.age}} </p>
                     <p class="stat-cards-info__title-workers">Address : {{worker_profile.wadd}} </p>
                     <p class="stat-cards-info__title-workers">Contact Number :{{worker_profile.wcontact}}</p>
                     <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{worker_profile.spd}}/-</span></p>

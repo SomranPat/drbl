@@ -81,7 +81,7 @@
                     <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
                 </li>
                 <li>
-                  <a href="appearance.html"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
+                  <a href="{% url 'logout' %}"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
                 </li>
             </ul>
         </div>
@@ -89,7 +89,7 @@
     <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
-                <picture><source srcset="{% static 'img/avatar/avatar-illustrated-01.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-01.png' %}" alt="User name"></picture>
+                <picture><source srcset="" type="image/webp"><img src="" alt=""></picture>
             </span>
             <div class="sidebar-user-info">
                 <span class="sidebar-user__title">WMS.</span>
@@ -146,9 +146,15 @@
                 <!-- <i data-feather="search" aria-hidden="true"></i> -->
                 <!-- <input type="text" placeholder="Enter keywords ..." required > -->
                 <button class="btn btn-primary" type ="submit">search</button>
+                <br>
+                
                 </form>
-            <!-- </div> -->
+                <br>
+                
+            </div>
         </article>
+        
+        <button class="button button1"><a href="{% url 'aworker' %}">Add Workers</a></button>
         
         <div class="row stat-cards-workers">
           {% for w in work %}
@@ -192,7 +198,7 @@
             }
           </style>
   
-            <td><button class="button button1"><a href="/add_worker">Add Workers</a></button></td>
+            <!-- <td><button class="button button1"><a href="{% url 'aworker' %}">Add Workers</a></button></td> -->
         </div>
       </div>
     </main>

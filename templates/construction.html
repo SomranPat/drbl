@@ -81,7 +81,7 @@
                     <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
                 </li>
                 <li>
-                  <a href="appearance.html"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
+                  <a href="{% url 'logout' %}"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
                 </li>
             </ul>
         </div>
@@ -146,12 +146,15 @@
                 <!-- <i data-feather="search" aria-hidden="true"></i> -->
                 <!-- <input type="text" placeholder="Enter keywords ..." required > -->
                 <button class="btn btn-primary" type ="submit">search</button>
+                <br>
+                
                 </form>
+                
             <!-- </div> -->
         </article>
+        <button class="button button1"><a href ='{% url 'add_site' %}'>Add Sites</a></button>
        
-        <div class="row stat-cards-workers">
-          
+        <div class="row stat-cards-workers">         
 
           {% for i in site%}
           <div class="col-md-6 col-xl-3">
@@ -193,7 +196,7 @@
           }
         </style>
 
-          <td><button class="button button1"><a href =/add_site>Add Sites</a></button></td>
+          
           
         </div>
       </div>

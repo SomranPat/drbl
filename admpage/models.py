@@ -27,10 +27,12 @@ class Site(models.Model):
 class Worker(models.Model):
     category = models.CharField(max_length=20,null=True)
     lsd = models.DateTimeField(auto_now_add=True,null=True)
-    name = models.CharField(max_length=20,null=True)
+    name = models.CharField(max_length=20,null=True)    
     spd = models.FloatField(null=True)
+    age = models.CharField(max_length=20,null=True)
     wadd = models.CharField(max_length=200,null=True)
     wcontact = models.CharField(max_length=20,null=True)
+    
 
 
     def __str__(self):
