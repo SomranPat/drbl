@@ -140,15 +140,14 @@
     <main class="main users chart-page" id="skip-target">
       <div class="container">
         <article class="white-block">
-          
-
             <div class="search-wrapper">
-                <i data-feather="search" aria-hidden="true"></i>
-                <input type="text" placeholder="Enter keywords ..." required>
-                     
-                
-            </div>           
-            
+              <form method="get">
+                {{mfil.form.sname}}
+                <!-- <i data-feather="search" aria-hidden="true"></i> -->
+                <!-- <input type="text" placeholder="Enter keywords ..." required > -->
+                <button class="btn btn-primary" type ="submit">search</button>
+                </form>
+            <!-- </div> -->
         </article>
        
         <div class="row stat-cards-workers">

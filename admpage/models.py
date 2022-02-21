@@ -3,6 +3,8 @@ from unicodedata import category
 from django.db import models
 from sympy import true
 
+
+
 # Create your models here.
 class Site(models.Model):
     STATUS =(
@@ -29,6 +31,7 @@ class Worker(models.Model):
     spd = models.FloatField(null=True)
     wadd = models.CharField(max_length=200,null=True)
     wcontact = models.CharField(max_length=20,null=True)
+
 
     def __str__(self):
         return self.name
