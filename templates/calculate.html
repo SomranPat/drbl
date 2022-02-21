@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Management System | Dashboard</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'img/svg/logo.svg' %}" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <div class="layer"></div>
+<!-- ! Body -->
+<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
+<div class="page-flex">
+  <!-- ! Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-start">
+        <div class="sidebar-head">
+            <a href="/" class="logo-wrapper" title="Home">
+                <span class="sr-only">Home</span>
+                <span class="icon logo" aria-hidden="true"></span>
+                <div class="logo-text">
+                    <span class="logo-title">WMS</span>
+                    <span class="logo-subtitle">Company</span>
+                </div>
+
+            </a>
+            <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+                <span class="sr-only">Toggle menu</span>
+                <span class="icon menu-toggle" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="sidebar-body">
+            <ul class="sidebar-body-menu">
+                <li>
+                    <a class=" " href="/home"><span class="icon home" aria-hidden="true"></span>Home</a>
+                </li>
+                <li>
+                    <a class=" " href="attendance">
+                        <span class="icon document" aria-hidden="true"></span>Attendance
+                    </a>
+                </li>
+                <li>
+                    <a class=" " href="/workers">
+                        <span class="icon user-3" aria-hidden="true"></span>Workers
+                    </a>
+                </li>
+                <li>
+                    <a class=" " href="/construction">
+                        <span class="icon location" aria-hidden="true"></span>Construction Site
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="/paysalary">
+                        <span class="icon wallet" aria-hidden="true"></span>Pay Salary
+                    </a>
+                </li>
+                <li>
+                    <a class=" " href="/complaints">
+                        <span class="icon message" aria-hidden="true"></span>Complaints
+                    </a>
+                    <span class="msg-counter">2</span>
+                </li>
+            </ul>
+            <span class="system-menu__title">system</span>
+            <ul class="sidebar-body-menu">
+                
+                
+                <li>
+                    <a class=" " href="##">
+                        <span class="icon profile" aria-hidden="true"></span>My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+                </li>
+                <li>
+                  <a href="appearance.html"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar-footer">
+        <a href="##" class="sidebar-user">
+            <span class="sidebar-user-img">
+                <picture><source srcset="{% static 'img/avatar/avatar-illustrated-01.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-01.png' %}" alt="User name"></picture>
+            </span>
+            <div class="sidebar-user-info">
+                <span class="sidebar-user__title">WMS.</span>
+                <span class="sidebar-user__subtitle">Support manager</span>
+            </div>
+        </a>
+    </div>
+</aside>
+  <div class="main-wrapper">
+    <!-- ! Main nav -->
+    <nav class="main-nav--bg">
+  <div class="container main-nav">
+    <div class="main-nav-start">
+        <h2 class="main-title">Calculate & Pay Salary</h2>
+    </div>
+    <div class="main-nav-end">
+      <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
+        <span class="sr-only">Switch theme</span>
+        <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
+        <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
+      </button>
+      <div class="nav-user-wrapper">
+        <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
+          <span class="sr-only">My profile</span>
+          <span class="nav-user-img">
+            <picture><source srcset="{% static 'img/avatar/avatar-illustrated-02.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-02.png' %}" alt="User name"></picture>
+          </span>
+        </button>
+        <ul class="users-item-dropdown nav-user-dropdown dropdown">
+          <li><a href="##">
+              <i data-feather="user" aria-hidden="true"></i>
+              <span>My Profile</span>
+            </a></li>
+          <li><a href="##">
+              <i data-feather="settings" aria-hidden="true"></i>
+              <span>Account settings</span>
+            </a></li>
+          <li><a class="danger" href="##">
+              <i data-feather="log-out" aria-hidden="true"></i>
+              <span>Log out</span>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+    <!-- ! Main -->
+    <main class="main users chart-page" id="skip-target">
+      <div class="container">
+        <div class="row stat-cards">
+          <div class="col-md-12 col-xl-12">
+            <article class="stat-cards-item-workers">
+                <div class="stat-cards-icon-worker-profile primary">
+                    <i data-feather="user" aria-hidden="true"></i>
+                </div>
+                <div class="stat-cards-info-workers">
+                    <p class="stat-cards-info__name-workers">Harsh Tiwari</p>
+                    <p class="stat-cards-info__title-workers">Category : Carpenter</p>
+                    <p class="stat-cards-info__title-workers">Age : 26</p>
+                    <p class="stat-cards-info__title-workers">Address : A - 102, Shree Shanti Society, D. P. Road, Vasai Road. </p>
+                    <p class="stat-cards-info__title-workers">Contact Number : 98988 88888</p>
+                    <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 900/-</span></p>
+                </div>
+            </article>
+          </div>
+        </div>
+        <br>
+        <article class="white-block">
+            <h4>Last Salary Taken on : 02/04/2021</h4>
+        </article>
+
+        <article class="white-block">
+            <h3 class="container-title">Calculate Salary</h3>
+            <form>
+              <br>
+              <h4>Salary per day : 900/-</h4>
+              <br><br>
+              <h4>
+                From : 
+                <input type="date" id="start-date" name="start-date">
+                To : 
+                <input type="date" id="end-date" name="end-date">
+              </h4>
+              <br><br>
+              <h4>
+                Number of days :
+              </h4>
+              <br>
+              <br>
+              <h4>
+                Calculated Salary :  
+              </h4>
+              <br>
+              <br>
+              <button class="button1 primary-default-btn transparent-btn"> Calculate </button>
+              <br>
+              <button class="button1 primary-default-btn transparent-btn">Pay Salary</button>
+            </form>
+        </article>
+        
+      
+      </div>
+    </main>
+    <!-- ! Footer -->
+    <footer class="footer">
+  <div class="container footer--flex">
+    <div class="footer-start">
+      <p>Created by -Deepak Suthar | -Somya R Patra | - Vibhav Rane</p>
+    </div>
+    <ul class="footer-end">
+      <li><a href="##">About</a></li>
+      <li><a href="##">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
+  </div>
+</div>
+<!-- Chart library -->
+<script src="{% static 'plugins/chart.min.js' %}"></script>
+<!-- Icons library -->
+<script src="{% static 'plugins/feather.min.js' %}"></script>
+<!-- Custom scripts -->
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

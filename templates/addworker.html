@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Management System | Add Worker</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/svg/Logo.svg' %}" type="image/x-icon">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+</head>
+
+<body>
+    <div class="layer"></div>
+    <main class="page-center">
+        <article class="sign-up">
+            <h1 class="sign-up__title">Add New Worker</h1>
+            <p class="sign-up__subtitle">No work is insignificant. All labour that uplifts humanity has dignity and importance and should be undertaken with painstaking excellence.</p>
+            <form class="sign-up-form form" action="" method="">
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Name</p>
+                    <input class="form-input" type="text" placeholder="Enter Worker's name" required>
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Type</p>
+                    <input class="form-input" list="worker_type" type="text" placeholder="Enter Worker's Type"
+                        required>
+                    <datalist id="worker_type">
+                        <option value="Carpenter">
+                        <option value="Helper">
+                        <option value="Electrician">
+                        <option value="Plasterer">
+                        <option value="Welder">
+                        <option value="Plumber">
+                        <option value="Glazier">
+                        <option value="Mason">
+                        <option value="Concrete Finisher">
+                        <option value="Painter">
+                        <option value="Other">
+                    </datalist>
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Address</p>
+                    <input class="form-input" type="text" placeholder="Enter Worker's Address" required>
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Contact no.</p>
+                    <input class="form-input" type="tel" placeholder="Enter Worker's Contact no." pattern="[0-9]{10}" required>
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Salary</p>
+                    <input class="form-input" type="number" placeholder="Enter per Day Salary" required>
+                </label>
+                
+                <br/>
+                <button class="form-btn primary-default-btn transparent-btn">Add Worker</button>
+            </form>
+        </article>
+    </main>
+    <!-- Chart library -->
+    <script src="./plugins/chart.min.js"></script>
+    <!-- Icons library -->
+    <script src="plugins/feather.min.js"></script>
+    <!-- Custom scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
