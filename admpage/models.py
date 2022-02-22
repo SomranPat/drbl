@@ -55,4 +55,8 @@ class Salary(models.Model):
     amount = models.CharField(max_length=20,null=True)
     sdate = models.DateTimeField(auto_now_add=True,null=True)    
     employee = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
+    
     worker = models.ForeignKey(Worker, null = True, on_delete=models.SET_NULL)
+    
+    def __str__(self):
+        return str(self.worker)

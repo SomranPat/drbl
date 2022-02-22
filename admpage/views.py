@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from .models import *
 from .filter import *
-from .forms import CreateEmpForm,workForm
+from .forms import CreateEmpForm,workForm, siteform
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -50,7 +50,9 @@ def construction(request):
 
 @login_required(login_url='emplog') 
 def paysalary(request):
-    return render(request, "paysalary.html")
+    sal = Salary.objects.all()
+
+    return render(request, "paysalary.html", {'sal':sal})
 
 @login_required(login_url='emplog') 
 def complaints(request):
@@ -95,7 +97,19 @@ def aworker(request):
 
 
 def add_site(request):
-    return render(request, "addsite.html")
+    form = siteform()
+    if request.method == 'POST':
+        form = siteform(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('sname')
+            messages.success(request, 'Data was created for' + user)
+            return redirect('construction')
+        
+
+
+    con = {'form':form}
+    return render(request, "addsite.html",con)
 
 def emplog(request):
 

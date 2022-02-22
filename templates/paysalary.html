@@ -73,9 +73,9 @@
                 
                 
                 <li>
-                    <a class=" " href="##">
-                        <span class="icon profile" aria-hidden="true"></span>My Profile
-                    </a>
+                  <a class=" " href="/empreg">
+                    <span class="icon profile" aria-hidden="true"></span>Employee
+                </a>
                 </li>
                 <li>
                     <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
@@ -89,7 +89,7 @@
     <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
-                <picture><source srcset="{% static 'img/avatar/avatar-illustrated-01.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-01.png' %}" alt="User name"></picture>
+                <picture><source srcset="" type=""><img src="" alt=""></picture>
             </span>
             <div class="sidebar-user-info">
                 <span class="sidebar-user__title">WMS.</span>
@@ -147,6 +147,7 @@
         </article>
        
         <div class="row stat-cards-workers">
+          {% for i in sal %}
           <div class="col-md-6 col-xl-3">
             <a href="/calculate_salary">
             <article class="stat-cards-item-workers">
@@ -154,240 +155,14 @@
                 <i data-feather="user" aria-hidden="true"></i>
               </div>
               <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Harsh Tiwari</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 900/-</span></p>
+                <p class="stat-cards-info__name-workers">{{i.worker}}</p>
+                <p class="stat-cards-info__title-workers">Category : {{i.worker.category}}</p>
+                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{i.amount}}</span></p>
               </div>
             </article></a>
           </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers warning">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Ankit Yadav</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 920/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers purple">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Tanmay Shukla</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 900/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers success">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Pratik Thakur</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 950/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers primary">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Krishna Tiwari</p>
-                <p class="stat-cards-info__title-workers">Category : Electrician</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 1050/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers warning">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Ishaan Tiwari</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 925/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers purple">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Ayush Shukla</p>
-                <p class="stat-cards-info__title-workers">Category : Painter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 1100/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers success">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Pratik Tiwari</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 950/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers primary">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Raghav Soni</p>
-                <p class="stat-cards-info__title-workers">Category : Bricklayer</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 1100/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers warning">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Ankit Yadav</p>
-                <p class="stat-cards-info__title-workers">Category : Bricklayer</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 950/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers purple">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Rishabh Shukla</p>
-                <p class="stat-cards-info__title-workers">Category : Helper</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 750/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers success">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Sanket Yadav</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 950/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers primary">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Harsh Thakur</p>
-                <p class="stat-cards-info__title-workers">Category : Brickerlayer</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 960/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers warning">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Rahul Thakur</p>
-                <p class="stat-cards-info__title-workers">Category : Brickerlayer</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 1050/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers purple">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Rohan Singh</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 980/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers success">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Pratik Thakur</p>
-                <p class="stat-cards-info__title-workers">Category : Electrician</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 1000/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers primary">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Omprakash Shukla</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 940/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers warning">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Ankit Thakur</p>
-                <p class="stat-cards-info__title-workers">Category : Helper</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 750/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers purple">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Ram Soni</p>
-                <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 900/-</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item-workers">
-              <div class="stat-cards-icon-workers success">
-                <i data-feather="user" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">Rohan Singh</p>
-                <p class="stat-cards-info__title-workers">Category : Helper</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 700/-</span></p>
-              </div>
-            </article>
-          </div>
+          {% endfor %}
+         
     
           
         </div>
