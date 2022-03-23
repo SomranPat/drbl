@@ -31,7 +31,9 @@ class Worker(models.Model):
     spd = models.FloatField(null=True)
     age = models.CharField(max_length=20,null=True)
     wadd = models.CharField(max_length=200,null=True)
+    # wpropic = models.ImageField(null=True, blank=True)
     wcontact = models.CharField(max_length=20,null=True)
+    
     
 
 
@@ -60,3 +62,4 @@ class Salary(models.Model):
     
     def __str__(self):
         return str(self.worker)
+
