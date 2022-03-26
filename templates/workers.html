@@ -139,22 +139,27 @@
     <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
       <div class="container">
-        <article class="white-block">
-            <div class="search-wrapper">
-              <form method="get">
-                {{mfil.form.name}}
-                <!-- <i data-feather="search" aria-hidden="true"></i> -->
-                <!-- <input type="text" placeholder="Enter keywords ..." required > -->
-                <button class="btn btn-primary" type ="submit">search</button>
-                <br>
-                
+        <div class="row">
+          <div class="col-lg-9">
+            <article class="white-block">
+              <div class="search-wrapper">
+                <form method="get">
+                  {{mfil.form.name}}
+                  <i data-feather="search" aria-hidden="true"></i>
+                  <!-- <input type="text" placeholder="Enter keywords ..." required > -->
                 </form>
-                <br>
-                
-            </div>
-        </article>
-        
-        <button class="button button1"><a href="{% url 'aworker' %}">Add Workers</a></button>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-3">
+            <a href="{% url 'aworker' %}">
+              <article class="white-block">
+                <button class="btn primary-default-btn transparent-btn">Add Worker</button>
+              </article>
+            </a>
+          </div>
+
+        </div>
         
         <div class="row stat-cards-workers">
           {% for w in work %}
