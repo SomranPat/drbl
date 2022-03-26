@@ -50,7 +50,7 @@ def construction(request):
 
 @login_required(login_url='emplog') 
 def paysalary(request):
-    sal = Salary.objects.all()
+    sal = Worker.objects.all()
 
     return render(request, "paysalary.html", {'sal':sal})
 
