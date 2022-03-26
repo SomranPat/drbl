@@ -127,7 +127,7 @@
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="{% url 'logout' %}">
+          <li><a class="danger" href="{% url 'logout' %}" >
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
@@ -155,9 +155,9 @@
                 <i data-feather="user" aria-hidden="true"></i>
               </div>
               <div class="stat-cards-info-workers">
-                <p class="stat-cards-info__name-workers">{{i.worker}}</p>
-                <p class="stat-cards-info__title-workers">Category : {{i.worker.category}}</p>
-                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{i.amount}}</span></p>
+                <p class="stat-cards-info__name-workers">{{i}}</p>
+                <p class="stat-cards-info__title-workers">Category : {{i.category}}</p>
+                <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{i.spd}}</span></p>
               </div>
             </article></a>
           </div>
