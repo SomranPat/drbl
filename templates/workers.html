@@ -138,7 +138,7 @@
 </nav>
     <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
-      <div class="container">
+      <div class="container" id="blur">
         <div class="row">
           <div class="col-lg-9">
             <article class="white-block">
@@ -158,6 +158,10 @@
               </article>
             </a>
           </div>
+                
+                <button class="test-btn" onclick="toggle()">test</button>
+                
+              
 
         </div>
         
@@ -206,6 +210,63 @@
             <!-- <td><button class="button button1"><a href="{% url 'aworker' %}">Add Workers</a></button></td> -->
         </div>
       </div>
+      <div class="popup" id="popup">
+        <h1 class="sign-up__title">Add New Worker</h1>            
+            <form class="sign-up-form form" action="" method="POST">
+                {% csrf_token %}
+                
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Name</p>
+                    {{form.name}}
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Type</p>
+                    {{form.category}}
+                    <!-- <input class="form-input" list="worker_type" type="text" placeholder="Enter Worker's Type"
+                        required>
+                    <datalist id="worker_type">
+                        <option value="Carpenter">
+                        <option value="Helper">
+                        <option value="Electrician">
+                        <option value="Plasterer">
+                        <option value="Welder">
+                        <option value="Plumber">
+                        <option value="Glazier">
+                        <option value="Mason">
+                        <option value="Concrete Finisher">
+                        <option value="Painter">
+                        <option value="Other">
+                    </datalist> --> -->
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Address</p>
+                    {{form.wadd}}
+                    <!-- <input class="form-input" type="text" placeholder="Enter Worker's Address" required> -->
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Contact no.</p>
+                    {{form.wcontact}}
+                    <!-- <input class="form-input" type="tel" placeholder="Enter Worker's Contact no." pattern="[0-9]{10}" required> -->
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Worker Salary</p>
+                    {{form.spd}}
+                    <!-- <input class="form-input" type="number" placeholder="Enter per Day Salary" required> -->
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Age</p>
+                    {{form.age}}
+                    <!-- <input class="form-input" type="number" placeholder="Enter per Day Salary" required> -->
+                </label>
+                
+                <br/>
+                <input type="submit" name="add worker">
+                <button class="btn primary-default-btn transparent-btn" onclick="toggle()">Cancel</button>
+            </form>
+    </div>
     </main>
     <!-- ! Footer -->
     <footer class="footer">
@@ -227,6 +288,26 @@
 <script src="{% static 'plugins/feather.min.js' %}"></script>
 <!-- Custom scripts -->
 <script src="{% static 'js/script.js' %}"></script>
+
+<script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+
+<script type="text/javascript">
+  function toggle(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('active');
+  }
+
+</script>
 </body>
 
 </html>
