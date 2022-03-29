@@ -26,22 +26,22 @@ class Site(models.Model):
 
 
 class Worker(models.Model):
-    # category = (
-    #     ('Carpenter','Carpenter'),
-    #     ('Helper','Helper'),
-    #     ('Electrician','Electrician'),
-    #     ('Plasterer','Plasterer'),
-    #     ('Welder','Welder'),
-    #     ('Plumber','Plumber'),
-    #     ('Glazier','Glazier'),
-    #     ('Mason','Mason'),
-    #     ('Concrete Finisher','Concrete Finisher'),
-    #     ('Painter','Painter'),
-    #     ('Other','Other'),
-    # )
-    category = models.CharField(max_length=20,null=True)
+    CATE = (
+        ('Carpenter','Carpenter'),
+        ('Helper','Helper'),
+        ('Electrician','Electrician'),
+        ('Plasterer','Plasterer'),
+        ('Welder','Welder'),
+        ('Plumber','Plumber'),
+        ('Glazier','Glazier'),
+        ('Mason','Mason'),
+        ('Concrete Finisher','Concrete Finisher'),
+        ('Painter','Painter'),
+        ('Other','Other'),
+    )
+    
     lsd = models.DateTimeField(auto_now_add=True,null=True)
-    category = models.CharField(max_length=20,null=True)
+    category = models.CharField(max_length=20,null=True,choices=CATE)
     name = models.CharField(max_length=20,null=True)    
     spd = models.FloatField(null=True)
     age = models.CharField(max_length=20,null=True)
