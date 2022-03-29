@@ -742,6 +742,21 @@ img {
   margin-bottom: 20px;
 }
 
+.white-block-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 .white-block__title {
   font-weight: 500;
   font-size: 16px;
@@ -1153,6 +1168,12 @@ body {
   height: 24px;
 }
 
+.building {
+  background-image: url(../img/svg/Bulk/building.svg);
+  width: 24px;
+  height: 24px;
+}
+
 .radio {
   background-image: url(../img/svg/radio.svg);
   width: 24px;
@@ -1221,6 +1242,12 @@ body {
 
 .location {
   background-image: url(../img/svg/Bulk/Location.svg);
+  width: 24px;
+  height: 24px;
+}
+
+.location-1 {
+  background-image: url(../img/svg/Bulk/location-1.svg);
   width: 24px;
   height: 24px;
 }
@@ -1348,6 +1375,9 @@ h3 {
   
 }
 
+
+
+
 .container-title {
   font-weight: bold;
   font-size: 24px;
@@ -1422,6 +1452,7 @@ button.disabled:focus {
   background-color: #2f49d1;
   color: #fff;
 }
+
 
 .primary-default-btn:hover {
   background-color: #4661F0;
@@ -1922,6 +1953,11 @@ label {
 
 .button1 {
   padding: 10px 30px;
+}
+
+.button1-fix {
+  padding: 10px 30px;
+  width: 100%;
 }
 
 .users {
@@ -2849,6 +2885,7 @@ label {
 
 .top-cat-title {
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .top-cat-title h3 {
@@ -3213,6 +3250,8 @@ label {
   background: #eff0f6;
 }
 
+
+
 .form-input::-webkit-input-placeholder {
   font-weight: 500;
   font-size: 14px;
@@ -3242,6 +3281,53 @@ label {
 }
 
 .form-input::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.43;
+  color: #d6d7e3;
+}
+
+
+.form-date-input {
+  border-radius: 8px;
+  border-width: 0;
+  margin-bottom: 15px;
+  padding: 5px 16px;
+  height: 44px;
+  width: 130px;
+  text-align: center;
+  background: #eff0f6;
+}
+
+.form-date-input::-webkit-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.43;
+  color: #d6d7e3;
+}
+
+.form-date-input::-moz-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.43;
+  color: #d6d7e3;
+}
+
+.form-date-input:-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.43;
+  color: #d6d7e3;
+}
+
+.form-date-input::-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.43;
+  color: #d6d7e3;
+}
+
+.form-date-input::placeholder {
   font-weight: 500;
   font-size: 14px;
   line-height: 2.43;
@@ -3413,6 +3499,14 @@ label {
   color: #EFF0F6;
 }
 
+.darkmode .container-title {
+  color: #EFF0F6;
+}
+
+.darkmode .filter-text {
+  color: #EFF0F6;
+}
+
 .darkmode .stat-cards-item {
   background-color: #222235;
   -webkit-box-shadow: none;
@@ -3429,7 +3523,29 @@ label {
   box-shadow: none;
 }
 
+.darkmode .stat-cards-item-workers-profile {
+  background-color: #222235;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.darkmode .stat-cards-item-site {
+  background-color: #222235;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.darkmode .stat-cards-item-site {
+  background-color: #222235;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .darkmode .stat-cards-info__name-workers {
+  color: #EFF0F6;
+}
+
+.darkmode .stat-cards-info__name-site {
   color: #EFF0F6;
 }
 
@@ -3487,7 +3603,12 @@ label {
 }
 
 .darkmode .form-input {
-  background-color: #222235;
+  background-color: #3c3c41;
+  color: #D6D7E3;
+}
+
+.darkmode .form-date-input {
+  background-color: #3c3c41;
   color: #D6D7E3;
 }
 
@@ -3510,6 +3631,11 @@ label {
 }
 
 .darkmode .white-block {
+  background-color: #222235;
+  color: #D6D7E3;
+}
+
+.darkmode .white-block-center {
   background-color: #222235;
   color: #D6D7E3;
 }
@@ -4419,31 +4545,12 @@ label {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-right: 9px;
+  margin-right: 10px;
 }
 
-.stat-cards-icon-worker-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  margin-right: 9px;
-}
 
-.stat-cards-icon-worker-profile.primary {
-  background-color: rgba(47, 73, 209, 0.1);
-  color: #2f49d1;
-}
+
+
 
 .stat-cards-icon-workers.primary {
   background-color: rgba(47, 73, 209, 0.1);
@@ -4518,6 +4625,184 @@ label {
 }
 
 .stat-cards-info__profit-workers svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.stat-cards-item-workers-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 24px 19px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 15px 50px rgba(160, 163, 189, 0.1);
+  box-shadow: 0px 15px 50px rgba(160, 163, 189, 0.1);
+  border-radius: 10px;
+  height: 92%;
+}
+
+
+.stat-cards-icon-worker-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.stat-cards-icon-worker-profile.primary {
+  background-color: rgba(47, 73, 209, 0.1);
+  color: #2f49d1;
+}
+
+
+.stat-cards-item-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 20px 19px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 15px 50px rgba(160, 163, 189, 0.1);
+  box-shadow: 0px 15px 50px rgba(160, 163, 189, 0.1);
+  border-radius: 10px;
+  height: 92%;
+}
+
+.stat-cards-icon-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.stat-cards-icon-site-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.stat-cards-icon-site-profile.primary {
+  background-color: rgba(47, 73, 209, 0.1);
+  color: #2f49d1;
+}
+
+.stat-cards-icon-site.primary {
+  background-color: rgba(47, 73, 209, 0.1);
+  color: #2f49d1;
+}
+
+.stat-cards-icon-site.warning {
+  background-color: rgba(255, 182, 72, 0.1);
+  color: #ffb648;
+}
+
+.stat-cards-icon-site.purple {
+  background-color: rgba(95, 46, 234, 0.1);
+  color: #5f2eea;
+}
+
+.stat-cards-icon-site.success {
+  background-color: rgba(75, 222, 151, 0.1);
+  color: #4bde97;
+}
+
+.stat-cards-info__name-site {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #171717;
+  margin-bottom: 4px;
+}
+
+.stat-cards-info__title-site {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.22;
+  color: #b9b9b9;
+  margin-bottom: 6px;
+}
+
+.stat-cards-info__progress-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.22;
+  color: #b9b9b9;
+}
+
+.stat-cards-info__profit-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.22;
+  margin-right: 10px;
+}
+
+.stat-cards-info__profit-site.success {
+  color: #4bde97;
+}
+
+.stat-cards-info__profit-site.danger {
+  color: #f26464;
+}
+
+.stat-cards-info__profit-site.warning {
+  color: #ffb648;
+}
+
+.stat-cards-info__profit-site svg {
   width: 16px;
   height: 16px;
   margin-right: 5px;

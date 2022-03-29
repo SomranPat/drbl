@@ -42,7 +42,7 @@
                     <a class=" " href="/home"><span class="icon home" aria-hidden="true"></span>Home</a>
                 </li>
                 <li>
-                    <a class=" " href="attendance">
+                    <a class=" " href="/attendance">
                         <span class="icon document" aria-hidden="true"></span>Attendance
                     </a>
                 </li>
@@ -140,20 +140,38 @@
     <main class="main users chart-page" id="skip-target">
       <div class="container">
         <div class="row stat-cards">
-          <div class="col-md-12 col-xl-12">
-            <article class="stat-cards-item-workers">
-                <div class="stat-cards-icon-worker-profile primary">
+          <div class="col-lg-9">
+            <article class="stat-cards-item-site">
+                <div class="stat-cards-icon-site-profile primary">
                     <i data-feather="map-pin" aria-hidden="true"></i>
                 </div>
-                <div class="stat-cards-info-workers">
-                    <p class="stat-cards-info__name-workers">{{construction_site_profile.sname}}</p>
-                    <p class="stat-cards-info__title-workers">{{construction_site_profile.location}} </p>
-                    <p class="stat-cards-info__title-workers">{{construction_site_profile.contact}}</p>
+                <div class="stat-cards-info-site">
+                    <p class="stat-cards-info__name-site">{{construction_site_profile.sname}}</p>
+                    <p class="stat-cards-info__title-site">{{construction_site_profile.location}} </p>
+                    <p class="stat-cards-info__title-site">{{construction_site_profile.contact}}</p>
                 </div>
             </article>
           </div>
+
+          <div class="col-lg-3">
+            <article class="white-block-center">
+              <div class="top-cat-title">
+                <h3>Documents</h3>
+              </div>
+              <ul class="top-cat-list">
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      <button class="button1-fix primary-default-btn transparent-btn">Add Documents</button> 
+                    </div></a></li>
+                    <li>
+                      <a href="##">
+                        <div class="top-cat-list__title">
+                          <button class="button1-fix primary-default-btn transparent-btn">View Documents</button> 
+                        </div></a></li></ul></article>
+          </div>
+
         </div>
-        <br>
         
       <div class="row">
         <div class="col-lg-9">
@@ -169,7 +187,11 @@
               </thead>
               <tbody>
                 <tr>
-                  <td></td>
+                  <td>
+                    <div class="stat-cards-icon-workers-list primary">
+                      <i data-feather="user" aria-hidden="true"></i>
+                    </div>
+                  </td>
                   <td>
                     Harsh Tiwari
                   </td>
@@ -178,7 +200,11 @@
                   <td>09:27 AM</td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>
+                      <div class="stat-cards-icon-workers-list primary">
+                        <i data-feather="user" aria-hidden="true"></i>
+                      </div>
+                    </td>
                     <td>
                       Ankit Yadav
                     </td>
@@ -187,7 +213,11 @@
                     <td>09:26 AM</td>
                   </tr>
                 <tr>
-                  <td></td>
+                  <td>
+                    <div class="stat-cards-icon-workers-list primary">
+                      <i data-feather="user" aria-hidden="true"></i>
+                    </div>
+                  </td>
                   <td>
                     Tanmay Shukla
                   </td>
@@ -195,7 +225,11 @@
                   <td>09:26 AM</td>
                 </tr>
                 <tr>
-                  <td></td>
+                  <td>
+                    <div class="stat-cards-icon-workers-list primary">
+                      <i data-feather="user" aria-hidden="true"></i>
+                    </div>
+                  </td>
                   <td>
                     Pratik Thakur
                   </td>
@@ -204,7 +238,11 @@
                   <td>09:23 AM</td>
                 </tr>
                 <tr>
-                  <td></td>
+                  <td>
+                    <div class="stat-cards-icon-workers-list primary">
+                      <i data-feather="user" aria-hidden="true"></i>
+                    </div>
+                  </td>
                   <td>
                     Niraj Gupta
                   </td>
@@ -213,7 +251,11 @@
                   <td>09:22 AM</td>
                 </tr>
                 <tr>
-                  <td></td>
+                  <td>
+                    <div class="stat-cards-icon-workers-list primary">
+                      <i data-feather="user" aria-hidden="true"></i>
+                    </div>
+                  </td>
                   <td>
                     Karan Yadav
                   </td>
@@ -221,7 +263,11 @@
                   <td>09:22 AM</td>
                 </tr>
                 <tr>
-                  <td></td>
+                  <td>
+                    <div class="stat-cards-icon-workers-list primary">
+                      <i data-feather="user" aria-hidden="true"></i>
+                    </div>
+                  </td>
                   <td>
                     Harsh Tiwari
                   </td>
@@ -229,7 +275,11 @@
                   <td>09:36 AM</td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>
+                      <div class="stat-cards-icon-workers-list primary">
+                        <i data-feather="user" aria-hidden="true"></i>
+                      </div>
+                    </td>
                     <td>
                       Tanmay Shukla
                     </td>
@@ -241,7 +291,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td>View All</td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
@@ -250,55 +300,85 @@
         <div class="col-lg-3">
           
           <article class="white-block">
-            <div class="top-cat-title">
-              <h3>Filter</h3>
-            </div>
-            <div class="top-cat-title">
-                <h4>From:</h4>
-                <br>
-                <input type="date" id="start-date" name="start-date">
-            </div>
-            <div class="top-cat-title">
-                <br>
-                <h4>To:</h4>
-                <br>
-                <input type="date" id="start-date" name="end-date">
-                
-            </div>
-            <div class="top-cat-title">
-                <br>
-                <h4>Worker :</h4>
-                <br>
-                <select id="construction-site" placeholder="Choose Option">
-                    <option hidden >Select Worker</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="top-cat-title">
-                <br>
-                <button class="button1 primary-default-btn transparent-btn">Submit</button></p>
-            </div>
-
+            <h2 class="main-title">Filter</h2>
+            <br>
+              <form>
+                <h3 class="filter-text">From :
+                  <br> 
+                  <input class="form-date-input" list="month" type="text" placeholder="Month" required>
+                      <datalist id="month">
+                          <option value="January">
+                          <option value="February">
+                          <option value="March">
+                          <option value="April">
+                          <option value="May">
+                          <option value="June">
+                          <option value="July">
+                          <option value="August">
+                          <option value="September">
+                          <option value="October">
+                          <option value="November">
+                          <option value="December">
+                      </datalist>
+                      <input class="form-date-input" list="year" type="text" placeholder="Year" required>
+                      <datalist id="year">
+                          <option value="2021">
+                          <option value="2022">
+                          <option value="2023">
+                          <option value="2024">
+                          <option value="2025">
+                          <option value="2026">
+                      </datalist>
+                  </h3>
+                  <h3 class="filter-text"> 
+                  To : 
+                  <br>
+                  <input class="form-date-input" list="month" type="text" placeholder="Month" required>
+                  <datalist id="month">
+                      <option value="January">
+                      <option value="February">
+                      <option value="March">
+                      <option value="April">
+                      <option value="May">
+                      <option value="June">
+                      <option value="July">
+                      <option value="August">
+                      <option value="September">
+                      <option value="October">
+                      <option value="November">
+                      <option value="December">
+                  </datalist>
+                  <input class="form-date-input" list="year" type="text" placeholder="Year" required>
+                  <datalist id="year">
+                      <option value="2021">
+                      <option value="2022">
+                      <option value="2023">
+                      <option value="2024">
+                      <option value="2025">
+                      <option value="2026">
+                  </datalist>
+                </h3>
+                <h3 class="filter-text">
+                  Worker :
+                  <br>
+                  <input class="form-input" list="worker" type="text" placeholder="Enter Site name" required>
+                  <datalist id="worker">
+                      <option value="Harsh Tiwari">
+                      <option value="Ankit Yadav">
+                      <option value="Tanmay Shukla">
+                      <option value="Pratik Thakur">
+                      <option value="Niraj Gupta">
+                      <option value="Karan Yadav">
+                      <option value="Harsh Tiwari">
+                  </datalist>
+                </h3>
+                <button class="button1 primary-default-btn transparent-btn">Submit</button>
+              </form>
+             
           </article>
-          <article class="white-block">
-            <div class="top-cat-title">
-              <h3>Documents</h3>
-            </div>
-            <ul class="top-cat-list">
-              <li>
-                <a href="##">
-                  <div class="top-cat-list__title">
-                    <button class="button1 primary-default-btn transparent-btn">Add PDF</button> 
-                  </div></a></li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        <button class="button1 primary-default-btn transparent-btn">Add JPEG</button> 
-                      </div></a></li></ul></article>
+
+
+          
 
           
         </div>
