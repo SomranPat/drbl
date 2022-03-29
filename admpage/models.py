@@ -16,6 +16,7 @@ class Site(models.Model):
     sname = models.CharField(max_length=200,null=True)
     status = models.CharField(max_length=10,null=True,choices=STATUS)
     location = models.CharField(max_length=300,null=True)
+    city = models.CharField(max_length=100,null=True)
     contact = models.CharField(max_length=20,null=True)
     # att = models.ManyToManyField(Attendance)
 
