@@ -754,7 +754,7 @@ img {
   top: 45%;
   transform: translate(-50%,-50%);
   z-index: 9;
-  width: 400px;
+  width: 600px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;

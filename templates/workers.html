@@ -152,14 +152,10 @@
             </article>
           </div>
           <div class="col-lg-3">
-            <a href="{% url 'aworker' %}">
               <article class="white-block">
-                <button class="btn primary-default-btn transparent-btn">Add Worker</button>
+                <button class="btn primary-default-btn transparent-btn" onclick="toggle()">Add Worker</button>
               </article>
-            </a>
           </div>
-                
-                <button class="test-btn" onclick="toggle()">test</button>
                 
               
 
@@ -237,7 +233,7 @@
                         <option value="Concrete Finisher">
                         <option value="Painter">
                         <option value="Other">
-                    </datalist> --> -->
+                    </datalist> -->
                 </label>
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Address</p>
@@ -263,8 +259,10 @@
                 </label>
                 
                 <br/>
-                <input type="submit" name="add worker">
-                <button class="btn primary-default-btn transparent-btn" onclick="toggle()">Cancel</button>
+                <!-- <input type="submit" name="add worker">
+                 -->
+                <button class="button1-fix primary-default-btn transparent-btn" type="submit">Submit</button><br>
+                <button class="button1-fix primary-default-btn transparent-btn" onclick="toggle()">Cancel</button>
             </form>
     </div>
     </main>
@@ -289,7 +287,7 @@
 <!-- Custom scripts -->
 <script src="{% static 'js/script.js' %}"></script>
 
-<script>
+<!-- <script>
   function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
@@ -297,7 +295,7 @@
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
-  </script>
+  </script> -->
 
 <script type="text/javascript">
   function toggle(){

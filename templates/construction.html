@@ -138,7 +138,7 @@
 </nav>
     <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
-      <div class="container">
+      <div class="container" id="blur">
         <div class="row">
           <div class="col-lg-9">
             <article class="white-block">
@@ -153,11 +153,9 @@
             </article>
           </div>
           <div class="col-lg-3">
-            <a href='{% url 'add_site' %}'>
               <article class="white-block">
-                <button class="btn primary-default-btn transparent-btn">Add Site</button>
+                <button class="btn primary-default-btn transparent-btn" onclick="toggle()">Add Site</button>
               </article>
-            </a>
           </div>
 
         </div>
@@ -208,6 +206,52 @@
           
         </div>
       </div>
+      <div class="popup" id="popup">
+        <h1 class="sign-up__title">Add New Construction Site</h1>            
+            <form class="sign-up-form form" action="" method="POST">
+                {% csrf_token %}
+                <label class="form-label-wrapper">
+                    <p class="form-label">Site Name</p>
+                    {{form.sname}}
+
+                </label>
+                
+                <label class="form-label-wrapper">
+                    <p class="form-label">Site Address</p>
+                    {{form.location}}
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Site City</p>
+                    {{form.city}}
+
+                </label>
+                <label class="form-label-wrapper">
+                    <p class="form-label">Site Contact no.</p>
+                   {{form.contact}}
+                </label>
+                
+                <label class="form-label-wrapper">
+                    <p class="form-label">Site Status</p>
+                    {{form.status}}
+                    
+                    <!-- <input class="form-input" list="worker_type" type="text" placeholder="Enter Construction Site Status"
+                        required>
+                    <datalist id="worker_type">
+                        <option value="Active">
+                        <option value="Completed">
+                        <option value="On Hold"> -->
+                    </datalist>
+
+                
+                <br/>
+                <!-- <input type="submit" name="add site"> -->
+
+                
+                <button class="button1-fix primary-default-btn transparent-btn" type="submit">Submit</button><br>
+                <button class="button1-fix primary-default-btn transparent-btn" onclick="toggle()">Cancel</button>
+            </form>
+      </div>
     </main>
     <!-- ! Footer -->
     <footer class="footer">
@@ -230,5 +274,15 @@
 <!-- Custom scripts -->
 <script src="{% static 'js/script.js' %}"></script>
 </body>
+
+<script type="text/javascript">
+  function toggle(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('active');
+  }
+
+</script>
 
 </html>

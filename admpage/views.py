@@ -69,7 +69,16 @@ def construction(request):
     site = Site.objects.all()
     mfil = sitefilter(request.GET, queryset=site)
     site = mfil.qs
-    cont = {'site':site, 'mfil':mfil}
+    form = siteform()
+    if request.method == 'POST':
+        form = siteform(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('sname')
+            messages.success(request, 'Data was created for' + user)
+            return redirect('construction')
+
+    cont = {'site':site, 'mfil':mfil, 'form':form}
 
     return render(request, "construction.html",cont)
 
