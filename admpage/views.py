@@ -11,10 +11,14 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required 
 
+
+
 # Create your views here.
 def rou(request):
     rou  = Worker.objects.all()
     return render(request ,"rou.html" ,{'rou':rou})
+
+
 
 
 @login_required(login_url='emplog') 
@@ -23,9 +27,16 @@ def ind(request):
 
 
 
+
+
+
 @login_required(login_url='emplog') 
 def attendance(request):
     return render(request, "attendance.html")
+
+
+
+
 
 @login_required(login_url='emplog') 
 def workers(request):
@@ -39,6 +50,10 @@ def workers(request):
 
     return render(request, "workers.html",cont)
 
+
+
+
+
 @login_required(login_url='emplog') 
 def construction(request):
     site = Site.objects.all()
@@ -48,15 +63,25 @@ def construction(request):
 
     return render(request, "construction.html",cont)
 
+
+
+
 @login_required(login_url='emplog') 
 def paysalary(request):
     sal = Worker.objects.all()
 
     return render(request, "paysalary.html", {'sal':sal})
 
+
+
+
+
 @login_required(login_url='emplog') 
 def complaints(request):
     return render(request, "complaints.html")
+
+
+
 
 @login_required(login_url='emplog') 
 def worker_profile(request,pk):
@@ -66,17 +91,26 @@ def worker_profile(request,pk):
     context = {'worker_profile':worker_profile}
     return render(request, "worker_profile.html", context)
 
+
+
+
 @login_required(login_url='emplog') 
 def construction_site_profile(request, pk):
     construction_site_profile = Site.objects.get(id=pk)
     context = {'construction_site_profile':construction_site_profile}
     return render(request, "site_profile.html", context)
 
+
+
+
 @login_required(login_url='emplog') 
 def calculate_salary(request):
     return render(request, "calculate.html")
 
- 
+
+
+
+
 def aworker(request):
     form = workForm()
     if request.method == 'POST':
@@ -96,6 +130,9 @@ def aworker(request):
 
 
 
+
+
+
 def add_site(request):
     form = siteform()
     if request.method == 'POST':
@@ -110,6 +147,10 @@ def add_site(request):
 
     con = {'form':form}
     return render(request, "addsite.html",con)
+
+
+
+
 
 def emplog(request):
 
@@ -129,9 +170,16 @@ def emplog(request):
 
     return render(request, "emplog.html",conte)
 
+
+
+
+
 def logoutuser(request):
     logout(request)
     return redirect('emplog')
+
+
+
 
 
 def empreg(request):
