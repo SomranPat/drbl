@@ -43,6 +43,14 @@ def workers(request):
     work = Worker.objects.all()
     mfil = workfilter(request.GET, queryset=work)
     work = mfil.qs
+    # form = workForm()
+    # if request.method == 'POST':
+    #     form = workForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         user = form.cleaned_data.get('name')
+    #         messages.success(request, 'Account was created for' + user)
+    #         return redirect('workers')
 
 
     cont = {'work':work, 'mfil':mfil}
