@@ -22,11 +22,14 @@
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
-                <div class="signin-content">
-                    <form method="POST" action="" id="signin-form" class="signin-form">
-                        {% csrf_token %}
-                        <h2 class="form-title">login your account</h2>
-                        <div class="form-group">
+                <!-- <div class="signin-content"> -->
+                    <!-- <form method="POST" action="" id="signin-form" class="signin-form"> -->
+                        <!-- {% csrf_token %} -->
+                        <h2 class="form-title">Reset account password EMAIL sent</h2>
+                        <p>We’ve emailed you instructions for setting your password, if an account exists with the email you entered. 
+                            You should receive them shortly.If you don’t receive an email, 
+                            please make sure you’ve entered the address you registered with, and check your spam folder.</p>
+                        <!-- <div class="form-group">
                             <input type="text" class="form-input" name="username" id="username" placeholder="Enter Username"/>
                         </div>
                         <div class="form-group">
@@ -38,15 +41,19 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" name="emplog" id="submit" class="form-submit" value="Sign up"/>
-                        </div>
+                        </div> -->
+                        <!-- {{form}}
+                        <input type ="submit" name = "Send Email"> -->
+
+
                     </form>
-                    <a href = "/reset_pass">
+                    <!-- <a href = "{% url 'workers' %}">
                         Forgotten Password ?</a>
                     
                     <p class="loginhere">
                         Welcome to WMS, It's great to have you!!
-                    </p>
-                </div>
+                    </p> -->
+                <!-- </div> -->
             </div>
         </section>
 
@@ -57,3 +64,6 @@
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
+
+
+

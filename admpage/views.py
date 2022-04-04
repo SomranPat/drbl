@@ -215,3 +215,6 @@ def empreg(request):
     
     context ={'form':form}
     return render(request, "empreg.html",context)
+
+
+    # def reset_pass(request):

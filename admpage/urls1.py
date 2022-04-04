@@ -1,6 +1,10 @@
+from re import template
 from django import views
 from django.urls import path
 from .import views
+
+from django.contrib.auth import views as av
+
 
 urlpatterns = [
     path("", views.ind, name = "ind"),
@@ -18,5 +22,23 @@ urlpatterns = [
     path("add_site", views.add_site, name ="add_site"),
     path("emplog", views.emplog, name ="emplog"),
     path("logout", views.logoutuser, name ="logout"),    
-    path('empreg',views.empreg, name = "empreg")
+    path('empreg',views.empreg, name = "empreg"),
+
+    
+    path('reset_pass', av.PasswordResetView.as_view(
+        template_name='reset_pass.html'), name = "reset_password"),
+    
+    path('reset_pass_sent', av.PasswordResetDoneView.as_view(
+        template_name ='reset_pass_sent.html'
+    ), name = 'password_reset_done'),
+    path('reset/<uidb64>/<token>/', av.PasswordResetConfirmView.as_view(
+        template_name ='reset.html'
+    ),name ='password_reset_confirm'),
+    
+    path('reset_pass_comp', av.PasswordResetCompleteView.as_view(
+        template_name ='reset_done.html'
+    ), name = 'password_reset_complete' ),
+
+
+
 ]
