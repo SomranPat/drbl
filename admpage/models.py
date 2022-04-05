@@ -63,7 +63,7 @@ class Employe(models.Model):
 
 class Attendance(models.Model):
     ada = models.DateField(auto_now_add=False,null=True)
-    atim = models.TimeField(auto_now_add=True, null =True)
+    atim = models.TimeField(auto_now_add=False, null =True)
     worker = models.ForeignKey(Worker, null = True, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, null = True, on_delete=models.CASCADE)
 
