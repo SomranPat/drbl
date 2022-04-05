@@ -188,6 +188,9 @@
                 </tr>
               </thead>
               <tbody>
+                
+                {% for a in att %}
+                {%if a.worker_id == worker_profile.id %}
                 <tr>
                   <td>
                     <div class="stat-cards-icon-workers-list primary">
@@ -195,119 +198,17 @@
                     </div>
                   </td>
                   <td>
-                    Borivali West
+                    {{a.site.sname}}
                   </td>
                   <td>
-                    Borivali West
+                    {{a.site.city}}
                   </td>
-                  <td>17.04.2021</td>
-                  <td>09:27 AM</td>
+                  <td>{{a.ada}}</td>
+                  <td>{{a.atim}}</td>
                 </tr>
-                <tr>
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="map-pin" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>
-                      Borivali West
-                    </td>
-                    <td>
-                      Borivali West
-                    </td>
-                    <td>16.04.2021</td>
-                    <td>09:26 AM</td>
-                  </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="map-pin" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Borivali West
-                  </td>
-                  <td>
-                    Borivali West
-                  </td>
-                  <td>15.04.2021</td>
-                  <td>09:31 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="map-pin" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Borivali West
-                  </td>
-                  <td>
-                    Borivali West
-                  </td>
-                  <td>14.04.2021</td>
-                  <td>09:23 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="map-pin" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Malad West
-                  </td>
-                  <td>
-                    Malad West
-                  </td>
-                  <td>13.04.2021</td>
-                  <td>09:28 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="map-pin" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Malad West
-                  </td>
-                  <td>
-                    Malad West
-                  </td>
-                  <td>12.04.2021</td>
-                  <td>09:29 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="map-pin" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Malad West
-                  </td>
-                  <td>
-                    Malad West
-                  </td>
-                  <td>11.04.2021</td>
-                  <td>09:26 AM</td>
-                </tr>
-                <tr>
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="map-pin" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>
-                      Malad West
-                    </td>
-                    <td>
-                      Malad West
-                    </td>
-                    <td>10.04.2021</td>
-                    <td>09:26 AM</td>
-                </tr>
+                {% endif %}
+
+                {% endfor %}  
                 <tr>
                   
                   <td></td>

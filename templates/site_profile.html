@@ -148,7 +148,9 @@
                 <div class="stat-cards-info-site">
                     <p class="stat-cards-info__name-site">{{construction_site_profile.sname}}</p>
                     <p class="stat-cards-info__title-site">{{construction_site_profile.location}} </p>
+                    <p class="stat-cards-info__title-site">{{construction_site_profile.city}}</p>
                     <p class="stat-cards-info__title-site">{{construction_site_profile.contact}}</p>
+                    <p class="stat-cards-info__title-site">{{construction_site_profile.status}}</p>
                 </div>
             </article>
           </div>
@@ -186,6 +188,8 @@
                 </tr>
               </thead>
               <tbody>
+                {% for a in att %}
+                {%if a.site_id == construction_site_profile.id %}
                 <tr>
                   <td>
                     <div class="stat-cards-icon-workers-list primary">
@@ -193,99 +197,14 @@
                     </div>
                   </td>
                   <td>
-                    Harsh Tiwari
+                    {{a.worker.name}}
                   </td>
                   
-                  <td>17.04.2021</td>
-                  <td>09:27 AM</td>
+                  <td>{{a.ada}}</td>
+                  <td>{{a.atim}}</td>
                 </tr>
-                <tr>
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>
-                      Ankit Yadav
-                    </td>
-                    
-                    <td>17.04.2021</td>
-                    <td>09:26 AM</td>
-                  </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="user" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Tanmay Shukla
-                  </td>
-                  <td>17.04.2021</td>
-                  <td>09:26 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="user" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Pratik Thakur
-                  </td>
-                  
-                  <td>17.04.2021</td>
-                  <td>09:23 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="user" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Niraj Gupta
-                  </td>
-                  
-                  <td>17.04.2021</td>
-                  <td>09:22 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="user" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Karan Yadav
-                  </td>
-                  <td>17.04.2021</td>
-                  <td>09:22 AM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stat-cards-icon-workers-list primary">
-                      <i data-feather="user" aria-hidden="true"></i>
-                    </div>
-                  </td>
-                  <td>
-                    Harsh Tiwari
-                  </td>
-                  <td>16.04.2021</td>
-                  <td>09:36 AM</td>
-                </tr>
-                <tr>
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>
-                      Tanmay Shukla
-                    </td>
-                    <td>16.04.2021</td>
-                    <td>09:31 AM</td>
-                </tr>
+                {% endif %}
+                {% endfor %} 
                 <tr>
                   
                   <td></td>

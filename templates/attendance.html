@@ -157,6 +157,8 @@
                   </tr>
                 </thead>
                 <tbody>
+                
+                {% for a in att %}
                   <tr>
                     
                     <td>
@@ -164,87 +166,20 @@
                         <i data-feather="user" aria-hidden="true"></i>
                       </div>
                     </td>
-                    <td>Harsh Tiwari</td>
+                  
+                    <td><a href="{% url 'worker_profile' a.worker.id %}">{{a.worker.name}}</a></td>
                     <td>
-                      Borivali West
+                      <a href="{% url 'construction_site_profile' a.site.id %}" >
+                      {{a.site.sname}}</a>
                     </td>
                     
-                    <td>17.04.2021</td>
-                    <td>09:27 AM</td>
+                    <td>{{a.ada}}</td>
+                    <td>{{a.atim}}</td>
                   </tr>
+                  {% endfor %}  
                   <tr>
                     
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>Ankit Yadav</td>
-                    <td>
-                      Borivali West
-                    </td>
-                    <td>23.04.2021</td>
-                    <td>09:31 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>Tanmay Shukla</td>
-                    <td>
-                      Borivali West
-                    </td>
-                    
-                    <td>17.04.2021</td>
-                    <td>09:23 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>Pratik Thakur</td>
-                    <td>
-                      Malad West
-                    </td>
-                    
-                    <td>17.04.2021</td>
-                    <td>09:28 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>Niraj Gupta</td>
-                    <td>
-                      Malad West
-                    </td>
-                    <td>17.04.2021</td>
-                    <td>09:29 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="stat-cards-icon-workers-list primary">
-                        <i data-feather="user" aria-hidden="true"></i>
-                      </div>
-                    </td>
-                    <td>Karan Yadav</td>
-                    <td>
-                      Malad West
-                    </td>
-                    <td>17.04.2021</td>
-                    <td>09:26 AM</td>
-                  </tr>
-                  <tr>
+                   
                     
                     <td></td>
                     <td></td>

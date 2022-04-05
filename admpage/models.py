@@ -62,20 +62,20 @@ class Employe(models.Model):
     address = models.CharField(max_length=200,null=True)
 
 class Attendance(models.Model):
-    ada = models.DateField(auto_now_add=True,null=True)
+    ada = models.DateField(auto_now_add=False,null=True)
     atim = models.TimeField(auto_now_add=True, null =True)
-    worker = models.ForeignKey(Worker, null = True, on_delete=models.SET_NULL)
-    site = models.ForeignKey(Site, null = True, on_delete=models.SET_NULL)
+    worker = models.ForeignKey(Worker, null = True, on_delete=models.CASCADE)
+    site = models.ForeignKey(Site, null = True, on_delete=models.CASCADE)
 
 
-class Salary(models.Model):
-    contact = models.CharField(max_length=20,null=True)
-    amount = models.CharField(max_length=20,null=True)
-    sdate = models.DateTimeField(auto_now_add=True,null=True)    
-    employee = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
+# class Salary(models.Model):
+#     contact = models.CharField(max_length=20,null=True)
+#     amount = models.CharField(max_length=20,null=True)
+#     sdate = models.DateTimeField(auto_now_add=True,null=True)    
+#     employee = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
     
-    worker = models.ForeignKey(Worker, null = True, on_delete=models.SET_NULL)
+#     worker = models.ForeignKey(Worker, null = True, on_delete=models.SET_NULL)
     
-    def __str__(self):
-        return str(self.worker)
+#     def __str__(self):
+#         return str(self.worker)
 

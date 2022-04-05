@@ -149,7 +149,7 @@
         <div class="row stat-cards-workers">
           {% for i in sal %}
           <div class="col-md-6 col-xl-3">
-            <a href="/calculate_salary">
+            <a href="{% url 'calculate_salary' i.id %}" >
             <article class="stat-cards-item-workers">
               <div class="stat-cards-icon-workers primary">
                 <i data-feather="user" aria-hidden="true"></i>

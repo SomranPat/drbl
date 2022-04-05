@@ -146,26 +146,26 @@
                     <i data-feather="user" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info-workers">
-                    <p class="stat-cards-info__name-workers">Harsh Tiwari</p>
-                    <p class="stat-cards-info__title-workers">Category : Carpenter</p>
-                    <p class="stat-cards-info__title-workers">Age : 26</p>
-                    <p class="stat-cards-info__title-workers">Address : A - 102, Shree Shanti Society, D. P. Road, Vasai Road. </p>
-                    <p class="stat-cards-info__title-workers">Contact Number : 98988 88888</p>
-                    <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : 900/-</span></p>
+                    <p class="stat-cards-info__name-workers">{{cs.worker.name}}</p>
+                    <p class="stat-cards-info__title-workers">Category : {{cs.worker.category}}</p>
+                    <p class="stat-cards-info__title-workers">Age : {{cs.worker.age}}</p>
+                    <p class="stat-cards-info__title-workers">Address : {{cs.site.location}} </p>
+                    <p class="stat-cards-info__title-workers">Contact Number : {{cs.worker.wcontact}}</p>
+                    <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{cs.worker.spd}}/-</span></p>
                 </div>
             </article>
           </div>
         </div>
         <br>
         <article class="white-block">
-            <h4>Last Salary Paid on : 02/04/2021</h4>
+            <h4>Last Salary Paid on : {{cs.worker.lsd}}</h4>
         </article>
 
         <article class="white-block">
             <h3 class="container-title">Calculate Salary</h3>
             <form>
               <br>
-              <h4>Salary per day : 900/-</h4>
+              <h4>Salary per day : {{cs.worker.spd}}/-</h4>
               <br><br>
               <h4>
                 From :

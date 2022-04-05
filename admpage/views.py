@@ -23,7 +23,12 @@ def rou(request):
 
 @login_required(login_url='emplog') 
 def ind(request):
-    return render(request, "index.html")
+    att = Attendance.objects.all().order_by('-ada','-atim')[:10]
+    con = Site.objects.all()[:6]
+    cnt = Site.objects.all().count()
+
+    cont = {'att':att, 'con':con, 'cnt':cnt}
+    return render(request, "index.html",cont)
 
 
 
@@ -32,7 +37,9 @@ def ind(request):
 
 @login_required(login_url='emplog') 
 def attendance(request):
-    return render(request, "attendance.html")
+    att = Attendance.objects.all().order_by('-ada','-atim')
+    print(type(att))
+    return render(request, "attendance.html",{'att':att})
 
 
 
@@ -106,8 +113,9 @@ def complaints(request):
 def worker_profile(request,pk):
 
     worker_profile = Worker.objects.get(id=pk)
+    att = Attendance.objects.all().order_by('-ada','-atim')
 
-    context = {'worker_profile':worker_profile}
+    context = {'worker_profile':worker_profile, 'att':att}
     return render(request, "worker_profile.html", context)
 
 
@@ -116,15 +124,18 @@ def worker_profile(request,pk):
 @login_required(login_url='emplog') 
 def construction_site_profile(request, pk):
     construction_site_profile = Site.objects.get(id=pk)
-    context = {'construction_site_profile':construction_site_profile}
+    att = Attendance.objects.all().order_by('-ada','-atim')
+    context = {'construction_site_profile':construction_site_profile,'att':att}
     return render(request, "site_profile.html", context)
 
 
 
 
 @login_required(login_url='emplog') 
-def calculate_salary(request):
-    return render(request, "calculate.html")
+def calculate_salary(request,pk):
+    cs = Attendance.objects.get(id=pk)
+    con = {'cs':cs}
+    return render(request, "calculate.html",con)
 
 
 
