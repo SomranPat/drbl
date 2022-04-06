@@ -229,3 +229,6 @@ def empreg(request):
 
 
     # def reset_pass(request):
+
+def mobindex(request):
+    return render(request ,'mobindex.html')
