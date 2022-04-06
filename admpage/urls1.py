@@ -23,6 +23,8 @@ urlpatterns = [
     path("emplog", views.emplog, name ="emplog"),
     path("logout", views.logoutuser, name ="logout"),    
     path('empreg',views.empreg, name = "empreg"),
+    
+    path('mobindex',views.mobindex, name="mobindex"),
 
     
     path('reset_pass', av.PasswordResetView.as_view(
