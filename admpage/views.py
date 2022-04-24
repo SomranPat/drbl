@@ -292,6 +292,9 @@ def empreg(request):
 def mobindex(request):
     return render(request ,'mobindex.html')
 
+def mobcomplaint(request):
+    return render(request ,"mobcomplaint.html")
+
 
 def payment(request):
     client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY))

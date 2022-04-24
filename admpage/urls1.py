@@ -29,6 +29,7 @@ urlpatterns = [
 
 
     path('mobindex',views.mobindex, name="mobindex"),
+    path('mobcomplaint',views.mobcomplaint, name="mobcomplaint"),
 
     
     path('reset_pass', av.PasswordResetView.as_view(
