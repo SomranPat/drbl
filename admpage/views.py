@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from matplotlib.style import context
 from django.contrib.auth.forms import UserCreationForm
 
+from rbl1.settings import RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY
+
 from .models import *
 from .filter import *
 from .forms import CreateEmpForm,workForm, siteform
@@ -12,13 +14,63 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required 
 
 
+from django.shortcuts import render
+from django.db.models import Count
+from django.http import JsonResponse
+import datetime
+
+
+import razorpay
+
+
 
 # Create your views here.
 def rou(request):
+    sitecnt=[]    
+    cnt =[] 
+    si = Site.objects.all().values_list('id','sname')
+    reg = Attendance.objects.values('site_id').annotate(
+        c=Count('site_id')).order_by('site_id')[:4]
+    
+    
+    
+    for j in range(len(reg)):
+        cnt.append(reg[j]['c'])    
+
+
+
+    for i in range(len(si)):
+        sitecnt.append({si[i][1]:cnt[i]})
+    print(sitecnt)
+
+
+
     rou  = Worker.objects.all()
     return render(request ,"rou.html" ,{'rou':rou})
 
 
+def mainind(request):
+    dtcnt=[]    
+    # dt =[] 
+    # si = Site.objects.all().values_list('id','sname')
+    reg = Attendance.objects.values('ada').annotate(
+        c=Count('ada')).order_by('-ada')[:5]    
+    
+    # print(reg)
+    
+    for j in range(len(reg)):
+        t = reg[j]['ada']
+        # t.strftime('%d/%m/%Y')
+        # dt.appen(reg[j]['c'])
+        dtcnt.append({t.strftime('%d/%m/%Y'):reg[j]['c']})
+    
+    # print(dtcnt)
+
+
+    # for i in range(len(si)):
+    #     sitecnt.append({si[i][1]:cnt[i]})
+    # print(sitecnt)
+    return JsonResponse(dtcnt, safe=False)
 
 
 @login_required(login_url='emplog') 
@@ -27,7 +79,14 @@ def ind(request):
     con = Site.objects.all()[:6]
     cnt = Site.objects.all().count()
 
-    cont = {'att':att, 'con':con, 'cnt':cnt}
+    pls =[]
+    rec =[]
+    
+    # pltyatt = Attendance.objects.all().order_by('-ada')[:50]
+    # pltxsite = Site.objects.all().values_list('id','sname')
+
+    
+    cont = {'att':att, 'con':con, 'cnt':cnt, }
     return render(request, "index.html",cont)
 
 
@@ -133,7 +192,7 @@ def construction_site_profile(request, pk):
 
 @login_required(login_url='emplog') 
 def calculate_salary(request,pk):
-    cs = Attendance.objects.get(id=pk)
+    cs = Worker.objects.get(id=pk)
     con = {'cs':cs}
     return render(request, "calculate.html",con)
 
@@ -232,3 +291,23 @@ def empreg(request):
 
 def mobindex(request):
     return render(request ,'mobindex.html')
+
+
+def payment(request):
+    client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY))
+
+    o_amount= 10000
+    o_currency= "INR"
+     
+    pay_ord =client.order.create(dict(amount=o_amount,currency=o_currency,payment_capture = 1))
+
+    pay_ord_id = pay_ord['id']
+
+    cont = {
+        'amount':100,
+        'api_key':RAZORPAY_API_KEY,
+        'order_id':pay_ord_id,
+    }
+
+
+    return render(request,'payment.html',cont)

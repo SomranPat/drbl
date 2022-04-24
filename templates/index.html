@@ -14,6 +14,8 @@
 </head>
 
 <body>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <div class="layer"></div>
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
@@ -230,6 +232,69 @@
             </a>
           </div>
         </div>
+        <div id ="trychart"></div>
+        <script>
+          
+          var state ={
+            'items':[],
+            'values':[],
+          }
+
+          var dataURL=`/mainind`
+          $.ajax({
+            method:'GET',
+            url:dataURL,
+            success: function(response){
+              console.log('RESPONSE:', response)
+              for (var i in response){
+                var key = Object.keys(response[i])[0]
+                var value = Object.values(response[i])[0]
+
+                state.items.push(key)
+                state.values.push(value)
+
+              }
+              console.log('STATE:',state)
+              buildchart() 
+
+            }
+          }
+
+          )
+
+
+          function buildchart(){
+            var chartdata={
+              "type":"bar",
+              "scale-x":{
+                "values":state.items
+              },
+              
+              "series":[
+                {
+                    "values":state.values
+                }
+              ]
+            }
+  
+            zingchart.render({
+              id: "trychart",
+              data: chartdata,
+  
+  
+            });
+
+          }
+
+
+          
+         
+
+
+        </script>
+
+
+
         <div class="row">
           <div class="col-lg-9">
             
