@@ -245,11 +245,11 @@
             <!-- <td><button class="button button1"><a href="{% url 'aworker' %}">Add Workers</a></button></td> -->
         </div>
       </div>
-      <div class="popup" id="popup">
-        <h1 class="sign-up__title">Add New Worker</h1>            
-            <form class="sign-up-form form" action="" method="POST">
+      <!-- <div class="popup" id="popup"> -->
+                   
+            <form class="sign-up-form form popup" id="popup" action="" method="POST">
                 {% csrf_token %}
-                
+                <h2 class="main-title">Add New Worker</h2> 
                 <label class="form-label-wrapper">
                     <p class="form-label">Worker Name</p>
                     {{form.name}}
@@ -303,7 +303,7 @@
                 <button class="button1-fix primary-default-btn transparent-btn" type="submit">Submit</button><br>
                 <button class="button1-fix primary-default-btn transparent-btn" onclick="toggle()">Cancel</button>
             </form>
-    </div>
+    <!-- </div> -->
     </main>
     <!-- ! Footer -->
     <footer class="footer">
