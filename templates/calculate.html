@@ -179,30 +179,30 @@
                     <i data-feather="user" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info-workers">
-                    <p class="stat-cards-info__name-workers">{{cs.worker.name}}</p>
-                    <p class="stat-cards-info__title-workers">Category : {{cs.worker.category}}</p>
-                    <p class="stat-cards-info__title-workers">Age : {{cs.worker.age}}</p>
-                    <p class="stat-cards-info__title-workers">Address : {{cs.site.location}} </p>
-                    <p class="stat-cards-info__title-workers">Contact Number : {{cs.worker.wcontact}}</p>
-                    <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{cs.worker.spd}}/-</span></p>
+                    <p class="stat-cards-info__name-workers">{{cs.name}}</p>
+                    <p class="stat-cards-info__title-workers">Category : {{cs.category}}</p>
+                    <p class="stat-cards-info__title-workers">Age : {{cs.age}}</p>
+                    <p class="stat-cards-info__title-workers">Address : {{cs.wadd}} </p>
+                    <p class="stat-cards-info__title-workers">Contact Number : {{cs.wcontact}}</p>
+                    <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{cs.spd}}/-</span></p>
                 </div>
             </article>
           </div>
         </div>
         <br>
         <article class="white-block">
-            <h4>Last Salary Paid on : {{cs.worker.lsd}}</h4>
+            <h4>Last Salary Paid on : {{cs.lsd}}</h4>
         </article>
 
         <article class="white-block">
             <h3 class="container-title">Calculate Salary</h3>
             <form>
               <br>
-              <h4>Salary per day : {{cs.worker.spd}}/-</h4>
+              <h4>Salary per day : {{cs.spd}}/-</h4>
               <br><br>
               <h4>
                 From :
-                <input class="form-date-input" list="month" type="text" placeholder="Month" required>
+                <input class="form-date-input" list="month" type="text" placeholder="Month" >
                       <datalist id="month">
                           <option value="January">
                           <option value="February">
@@ -217,7 +217,7 @@
                           <option value="November">
                           <option value="December">
                       </datalist>
-                      <input class="form-date-input" list="year" type="text" placeholder="Year" required>
+                      <input class="form-date-input" list="year" type="text" placeholder="Year" >
                       <datalist id="year">
                           <option value="2021">
                           <option value="2022">
@@ -227,7 +227,7 @@
                           <option value="2026">
                       </datalist>
                 To : 
-                <input class="form-date-input" list="month" type="text" placeholder="Month" required>
+                <input class="form-date-input" list="month" type="text" placeholder="Month" >
                       <datalist id="month">
                           <option value="January">
                           <option value="February">
@@ -242,7 +242,7 @@
                           <option value="November">
                           <option value="December">
                       </datalist>
-                      <input class="form-date-input" list="year" type="text" placeholder="Year" required>
+                      <input class="form-date-input" list="year" type="text" placeholder="Year" >
                       <datalist id="year">
                           <option value="2021">
                           <option value="2022">
@@ -263,9 +263,12 @@
               </h4>
               <br>
               <br>
+              
               <button class="button1 primary-default-btn transparent-btn"> Calculate </button>
               <br>
-              <button class="button1 primary-default-btn transparent-btn">Pay Salary</button>
+              <a href="/payment" class="button1 primary-default-btn transparent-btn">Pay Salary</a>
+              <!-- <button class="button1 primary-default-btn transparent-btn">Pay Salary</button>
+              </a> -->
             </form>
         </article>
         

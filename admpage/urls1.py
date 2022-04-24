@@ -23,7 +23,11 @@ urlpatterns = [
     path("emplog", views.emplog, name ="emplog"),
     path("logout", views.logoutuser, name ="logout"),    
     path('empreg',views.empreg, name = "empreg"),
+    path('mainind',views.mainind, name ='mainind' ),
+    path('payment',views.payment, name = 'payment'),
     
+
+
     path('mobindex',views.mobindex, name="mobindex"),
 
     
