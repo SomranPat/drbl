@@ -104,7 +104,7 @@
             </ul>
         </div>
     </div>
-    <div class="sidebar-footer">
+    <!-- <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
                 <picture><source srcset="{% static 'img/avatar/avatar-illustrated-01.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-01.png' %}" alt="User name"></picture>
@@ -114,7 +114,7 @@
                 <span class="sidebar-user__subtitle">Support manager</span>
             </div>
         </a>
-    </div>
+    </div> -->
 </aside>
   <div class="main-wrapper">
     <!-- ! Main nav -->
@@ -138,7 +138,12 @@
 
 
 
+      <!-- for google translation -->
+      <div class="lang-switcher-wrapper">
+        <div id="google_element"></div>
+      </div>
 
+      <!-- for night mood -->
       <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
         <span class="sr-only">Switch theme</span>
         <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
@@ -295,6 +300,14 @@
 <script src="{% static 'plugins/feather.min.js' %}"></script>
 <!-- Custom scripts -->
 <script src="{% static 'js/script.js' %}"></script>
+
+<!-- for google translate -->
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+  function loadGoogleTranslate() {
+    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages: "bn,hi,gu,mr,pa,ur,ta,te"},"google_element");
+  }
+</script>
 </body>
 
 </html>
