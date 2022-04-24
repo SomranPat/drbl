@@ -15,96 +15,96 @@
 
 <body>
   <div class="layer"></div>
-<!-- ! Body -->
-<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
-<div class="page-flex">
-  <!-- ! Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-start">
+  <!-- ! Body -->
+  <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
+  <div class="page-flex">
+    <!-- ! Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-start">
         <div class="sidebar-head">
-            <a href="/" class="logo-wrapper" title="Home">
-                <span class="sr-only">Home</span>
-                <span class="icon logo" aria-hidden="true"></span>
-                <div class="logo-text">
-                    <span class="logo-title">WMS</span>
-                    <span class="logo-subtitle">Company</span>
-                </div>
+          <a href="/" class="logo-wrapper" title="Home">
+            <span class="sr-only">Home</span>
+            <span class="icon logo" aria-hidden="true"></span>
+            <div class="logo-text">
+              <span class="logo-title">WMS</span>
+              <span class="logo-subtitle">Company</span>
+            </div>
 
-            </a>
-            <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
-                <span class="sr-only">Toggle menu</span>
-                <span class="icon menu-toggle" aria-hidden="true"></span>
-            </button>
+          </a>
+          <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+            <span class="sr-only">Toggle menu</span>
+            <span class="icon menu-toggle" aria-hidden="true"></span>
+          </button>
         </div>
         <div class="sidebar-body">
-            <ul class="sidebar-body-menu">
-                <li>
-                    <a class=" " href="/home"><span class="icon home" aria-hidden="true"></span>Home</a>
-                </li>
-                <li>
-                    <a class=" " href="attendance">
-                        <span class="icon document" aria-hidden="true"></span>Attendance
-                    </a>
-                </li>
-                <li>
-                    <a class=" " href="/workers">
-                        <span class="icon user-3" aria-hidden="true"></span>Workers
-                    </a>
-                </li>
-                <li>
-                    <a class=" " href="/construction">
-                        <span class="icon location" aria-hidden="true"></span>Construction Site
-                    </a>
-                </li>
-                <li>
-                    <a class="active" href="/paysalary">
-                        <span class="icon wallet" aria-hidden="true"></span>Pay Salary
-                    </a>
-                </li>
-                <li>
-                    <a class=" " href="/complaints">
-                        <span class="icon message" aria-hidden="true"></span>Complaints
-                    </a>
-                    <span class="msg-counter">2</span>
-                </li>
-                  
-
-                
-                
-                <!-- for sidebar toggle pls do not touch -->
-                <li>
-                  <a class="show-cat-btn" href="##">
-                      <!-- <span class="icon document" aria-hidden="true"></span>Posts -->
-                      <span class="category__btn transparent-btn" title="Open list">
-                      </span>
-                  </a>
-                  <ul class="cat-sub-menu">
-                  </ul>
-                </li>
+          <ul class="sidebar-body-menu">
+            <li>
+              <a class=" " href="/home"><span class="icon home" aria-hidden="true"></span>Home</a>
+            </li>
+            <li>
+              <a class=" " href="attendance">
+                <span class="icon document" aria-hidden="true"></span>Attendance
+              </a>
+            </li>
+            <li>
+              <a class=" " href="/workers">
+                <span class="icon user-3" aria-hidden="true"></span>Workers
+              </a>
+            </li>
+            <li>
+              <a class=" " href="/construction">
+                <span class="icon location" aria-hidden="true"></span>Construction Site
+              </a>
+            </li>
+            <li>
+              <a class="active" href="/paysalary">
+                <span class="icon wallet" aria-hidden="true"></span>Pay Salary
+              </a>
+            </li>
+            <li>
+              <a class=" " href="/complaints">
+                <span class="icon message" aria-hidden="true"></span>Complaints
+              </a>
+              <span class="msg-counter">2</span>
+            </li>
 
 
 
 
-            </ul>
-            <span class="system-menu__title">system</span>
-            <ul class="sidebar-body-menu">
-                
-                
-                <li>
-                    <a class=" " href="##">
-                        <span class="icon profile" aria-hidden="true"></span>My Profile
-                    </a>
-                </li>
-                <li>
-                    <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
-                </li>
-                <li>
-                  <a href="{% url 'logout' %}"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
-                </li>
-            </ul>
+            <!-- for sidebar toggle pls do not touch -->
+            <li>
+              <a class="show-cat-btn" href="##">
+                <!-- <span class="icon document" aria-hidden="true"></span>Posts -->
+                <span class="category__btn transparent-btn" title="Open list">
+                </span>
+              </a>
+              <ul class="cat-sub-menu">
+              </ul>
+            </li>
+
+
+
+
+          </ul>
+          <span class="system-menu__title">system</span>
+          <ul class="sidebar-body-menu">
+
+
+            <li>
+              <a class=" " href="##">
+                <span class="icon profile" aria-hidden="true"></span>My Profile
+              </a>
+            </li>
+            <li>
+              <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+            </li>
+            <li>
+              <a href="{% url 'logout' %}"><span class="icon log-out" aria-hidden="true"></span>Log-out</a>
+            </li>
+          </ul>
         </div>
-    </div>
-    <!-- <div class="sidebar-footer">
+      </div>
+      <!-- <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
                 <picture><source srcset="{% static 'img/avatar/avatar-illustrated-01.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-01.png' %}" alt="User name"></picture>
@@ -115,175 +115,180 @@
             </div>
         </a>
     </div> -->
-</aside>
-  <div class="main-wrapper">
-    <!-- ! Main nav -->
-    <nav class="main-nav--bg">
-  <div class="container main-nav">
-    <div class="main-nav-start">
-        <h2 class="main-title">Calculate & Pay Salary</h2>
-    </div>
-    <div class="main-nav-end">
-      
-
-
-      
-
-      <!-- for sidebar toggle do not touch -->
-      <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
-        <span class="sr-only">Toggle menu</span>
-        <span class="icon menu-toggle--gray" aria-hidden="true"></span>
-      </button>
+    </aside>
+    <div class="main-wrapper">
+      <!-- ! Main nav -->
+      <nav class="main-nav--bg">
+        <div class="container main-nav">
+          <div class="main-nav-start">
+            <h2 class="main-title">Calculate & Pay Salary</h2>
+          </div>
+          <div class="main-nav-end">
 
 
 
 
-      <!-- for google translation -->
-      <div class="lang-switcher-wrapper">
-        <div id="google_element"></div>
-      </div>
 
-      <!-- for night mood -->
-      <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
-        <span class="sr-only">Switch theme</span>
-        <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
-        <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-      </button>
-      <div class="nav-user-wrapper">
-        <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
-          <span class="sr-only">My profile</span>
-          <span class="nav-user-img">
-            <picture><source srcset="{% static 'img/avatar/avatar-illustrated-02.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-illustrated-02.png' %}" alt="User name"></picture>
-          </span>
-        </button>
-        <ul class="users-item-dropdown nav-user-dropdown dropdown">
-          <li><a href="##">
-              <i data-feather="user" aria-hidden="true"></i>
-              <span>My Profile</span>
-            </a></li>
-          <li><a href="##">
-              <i data-feather="settings" aria-hidden="true"></i>
-              <span>Account settings</span>
-            </a></li>
-          <li><a class="danger" href="{% url 'logout' %}">
-              <i data-feather="log-out" aria-hidden="true"></i>
-              <span>Log out</span>
-            </a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-    <!-- ! Main -->
-    <main class="main users chart-page" id="skip-target">
-      <div class="container">
-        <div class="row stat-cards">
-          <div class="col-md-12 col-xl-12">
-            <article class="stat-cards-item-workers">
-                <div class="stat-cards-icon-worker-profile primary">
+            <!-- for sidebar toggle do not touch -->
+            <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+              <span class="sr-only">Toggle menu</span>
+              <span class="icon menu-toggle--gray" aria-hidden="true"></span>
+            </button>
+
+
+
+
+            <!-- for google translation -->
+            <div class="lang-switcher-wrapper">
+              <div id="google_element"></div>
+            </div>
+
+            <!-- for night mood -->
+            <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
+              <span class="sr-only">Switch theme</span>
+              <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
+              <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
+            </button>
+            <div class="nav-user-wrapper">
+              <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
+                <span class="sr-only">My profile</span>
+                <span class="nav-user-img">
+                  <picture>
+                    <source srcset="{% static 'img/avatar/avatar-illustrated-02.webp' %}" type="image/webp"><img
+                      src="{% static 'img/avatar/avatar-illustrated-02.png' %}" alt="User name">
+                  </picture>
+                </span>
+              </button>
+              <ul class="users-item-dropdown nav-user-dropdown dropdown">
+                <li><a href="##">
                     <i data-feather="user" aria-hidden="true"></i>
-                </div>
-                <div class="stat-cards-info-workers">
-                    <p class="stat-cards-info__name-workers">{{cs.name}}</p>
-                    <p class="stat-cards-info__title-workers">Category : {{cs.category}}</p>
-                    <p class="stat-cards-info__title-workers">Age : {{cs.age}}</p>
-                    <p class="stat-cards-info__title-workers">Address : {{cs.wadd}} </p>
-                    <p class="stat-cards-info__title-workers">Contact Number : {{cs.wcontact}}</p>
-                    <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day : {{cs.spd}}/-</span></p>
-                </div>
-            </article>
+                    <span>My Profile</span>
+                  </a></li>
+                <li><a href="##">
+                    <i data-feather="settings" aria-hidden="true"></i>
+                    <span>Account settings</span>
+                  </a></li>
+                <li><a class="danger" href="{% url 'logout' %}">
+                    <i data-feather="log-out" aria-hidden="true"></i>
+                    <span>Log out</span>
+                  </a></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <br>
-        <article class="white-block">
+      </nav>
+      <!-- ! Main -->
+      <main class="main users chart-page" id="skip-target">
+        <div class="container">
+          <div class="row stat-cards">
+            <div class="col-md-12 col-xl-12">
+              <article class="stat-cards-item-workers">
+                <div class="stat-cards-icon-worker-profile primary">
+                  <i data-feather="user" aria-hidden="true"></i>
+                </div>
+                <div class="stat-cards-info-workers">
+                  <p class="stat-cards-info__name-workers">{{cs.name}}</p>
+                  <p class="stat-cards-info__title-workers">Category : {{cs.category}}</p>
+                  <p class="stat-cards-info__title-workers">Age : {{cs.age}}</p>
+                  <p class="stat-cards-info__title-workers">Address : {{cs.wadd}} </p>
+                  <p class="stat-cards-info__title-workers">Contact Number : {{cs.wcontact}}</p>
+                  <p class="stat-cards-info__progress"> <span class="stat-cards-info__profit success"> Salary per day :
+                      {{cs.spd}}/-</span></p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <br>
+          <article class="white-block">
             <h4>Last Salary Paid on : {{cs.lsd}}</h4>
-        </article>
+          </article>
 
-        <article class="white-block">
+          <article class="white-block">
             <h3 class="container-title">Calculate Salary</h3>
-            <form>
+            <form method="POST" , id = "salcal">
+              {% csrf_token %}
               <br>
               <h4>Salary per day : {{cs.spd}}/-</h4>
               <br><br>
               <h4>
-                Salary : 
-                <input class="form-date-input" list="month" type="text" placeholder="Month" required>
-                      <datalist id="month">
-                          <option value="January">
-                          <option value="February">
-                          <option value="March">
-                          <option value="April">
-                          <option value="May">
-                          <option value="June">
-                          <option value="July">
-                          <option value="August">
-                          <option value="September">
-                          <option value="October">
-                          <option value="November">
-                          <option value="December">
-                      </datalist>
-                      <input class="form-date-input" list="year" type="text" placeholder="Year" required>
-                      <datalist id="year">
-                          <option value="2021">
-                          <option value="2022">
-                          <option value="2023">
-                          <option value="2024">
-                          <option value="2025">
-                          <option value="2026">
-                      </datalist>
-                
+                Salary :
+                <input class="form-date-input" list="month" name="mth" id="mth" type="text" placeholder="Month" required>
+                <datalist id="month">
+                  <option value="01">
+                  <option value="02">
+                  <option value="03">
+                  <option value="04">
+                  <option value="05">
+                  <option value="06">
+                  <option value="07">
+                  <option value="08">
+                  <option value="09">
+                  <option value="10">
+                  <option value="11">
+                  <option value="12">
+                </datalist>
+                <input class="form-date-input" list="year" type="text" name="yr" id="yr" placeholder="Year" required>
+                <datalist id="year">
+                  <option value="2021">
+                  <option value="2022">
+                  <option value="2023">
+                  <option value="2024">
+                  <option value="2025">
+                  <option value="2026">
+                </datalist>
+
               </h4>
               <br><br>
               <h4>
-                Number of days :
+                Number of days :{{cnt}}
               </h4>
               <br>
               <br>
               <h4>
-                Calculated Salary :  
+                Calculated Salary :{{amt}}
               </h4>
               <br>
               <br>
-              
+
               <button class="button1 primary-default-btn transparent-btn"> Calculate </button>
               <br>
               <a href="/payment" class="button1 primary-default-btn transparent-btn">Pay Salary</a>
               <!-- <button class="button1 primary-default-btn transparent-btn">Pay Salary</button>
               </a> -->
             </form>
-        </article>
-        
-      
-      </div>
-    </main>
-    <!-- ! Footer -->
-    <footer class="footer">
-  <div class="container footer--flex">
-    <div class="footer-start">
-      <p>Created by -Deepak Suthar | -Somya R Patra | - Vibhav Rane</p>
-    </div>
-    <ul class="footer-end">
-      <li><a href="##">About</a></li>
-      <li><a href="##">Contact Us</a></li>
-    </ul>
-  </div>
-</footer>
-  </div>
-</div>
-<!-- Chart library -->
-<script src="{% static 'plugins/chart.min.js' %}"></script>
-<!-- Icons library -->
-<script src="{% static 'plugins/feather.min.js' %}"></script>
-<!-- Custom scripts -->
-<script src="{% static 'js/script.js' %}"></script>
+          </article>
 
-<!-- for google translate -->
-<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-<script>
-  function loadGoogleTranslate() {
-    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages: "bn,hi,gu,mr,pa,ur,ta,te"},"google_element");
-  }
-</script>
+
+        </div>
+      </main>
+      <!-- ! Footer -->
+      <footer class="footer">
+        <div class="container footer--flex">
+          <div class="footer-start">
+            <p>Created by -Deepak Suthar | -Somya R Patra | - Vibhav Rane</p>
+          </div>
+          <ul class="footer-end">
+            <li><a href="##">About</a></li>
+            <li><a href="##">Contact Us</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Chart library -->
+  <script src="{% static 'plugins/chart.min.js' %}"></script>
+  <!-- Icons library -->
+  <script src="{% static 'plugins/feather.min.js' %}"></script>
+  <!-- Custom scripts -->
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <!-- for google translate -->
+  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  <script>
+    function loadGoogleTranslate() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "bn,hi,gu,mr,pa,ur,ta,te" }, "google_element");
+    }
+  </script>
 </body>
 
 </html>

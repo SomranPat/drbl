@@ -193,7 +193,36 @@ def construction_site_profile(request, pk):
 @login_required(login_url='emplog') 
 def calculate_salary(request,pk):
     cs = Worker.objects.get(id=pk)
-    con = {'cs':cs}
+    att = Attendance.objects.all().order_by('-ada')
+    
+
+    
+
+    if request.method =='POST':
+        month = request.POST.get('mth')
+        year = request.POST.get('yr')
+        cnt=0
+        # print(type(month))
+        for a in att:
+            if a.worker_id == cs.id :
+                dt = a.ada
+                # print(dt.strftime('%m'))
+
+                if dt.strftime('%Y')==year and dt.strftime('%m')==month:
+                    cnt+=1
+        # print(cnt)
+        amt = cnt*cs.spd
+        cont={'cnt':cnt ,'amt':amt,'cs':cs, 'att':att}
+        return render(request,"calculate.html",cont )
+    # print(cnt)
+    # amt = cnt*cs.spd
+
+    #  'cnt':cnt ,'amt':amt
+
+
+
+
+    con = {'cs':cs, 'att':att }
     return render(request, "calculate.html",con)
 
 
