@@ -99,7 +99,7 @@ def attendance(request):
     att = Attendance.objects.all().order_by('-ada','-atim')
     # print(type(att))
     site = Site.objects.all()
-    
+    worker = Worker.objects.all()
     # print(site)
 
     if request.method =='POST':
@@ -127,10 +127,10 @@ def attendance(request):
         #             cnt.add(a)
         # # print(cnt)
         # att = cnt
-        cont={'site':site, 'att':att}
+        cont={'site':site, 'att':att, 'worker':worker}
         return render(request,"attendance.html",cont )
 
-    cont = {'att':att, 'site':site}
+    cont = {'att':att, 'site':site, 'worker':worker}
 
     return render(request, "attendance.html",cont)
 

@@ -177,7 +177,7 @@
 </nav>
     <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
-      
+      <div class="container" id="blur">
 
       <div class="container">
       <div class="row">
@@ -230,6 +230,11 @@
         </div>
 
         <div class="col-lg-3">
+          
+            <article class="white-block">
+              <button class="btn primary-default-btn transparent-btn" onclick="toggle()">Add Attendance</button>
+            </article>
+  
         <article class="white-block">
           <h2 class="main-title">Filter</h2>
           <br>
@@ -263,7 +268,39 @@
         </article>
       </div>
     
-          </div>
+      </div>
+      </div>
+      </div>
+      
+
+      <form class="sign-up-form form popup" id="popup" action="" method="POST">
+        {% csrf_token %}
+        <h2 class="main-title">Add New Attendance</h2> 
+        <label class="form-label-wrapper">
+            <p class="form-label">Worker Name</p>
+            <input class="form-input" list="worker" type="text" name="wrk" id="wrk" placeholder="Enter Site name" required>
+                <datalist id="worker">
+                  {% for i in worker%}
+                    <option value ={{i.id}}>{{i.name}}</option>
+                  {% endfor %}
+                </datalist>
+
+        </label>
+        <label class="form-label-wrapper">
+          <p class="form-label">Site Name</p>
+          <input class="form-input" list="site2" type="text" name="st" id="st" placeholder="Enter Site name" required>
+              <datalist id="site2">
+                {% for j in site%}
+                  <option value ={{j.id}}>{{j.sname}}</option>
+                {% endfor %}
+
+              </datalist>
+
+      </label>
+        
+        <button class="button1-fix primary-default-btn transparent-btn" type="submit">Submit</button><br>
+        <button class="button1-fix primary-default-btn transparent-btn" onclick="toggle()">Cancel</button>
+      </form>
     </main>
     <!-- ! Footer -->
     <footer class="footer">
@@ -285,6 +322,16 @@
 <script src="{% static 'plugins/feather.min.js' %}"></script>
 <!-- Custom scripts -->
 <script src="{% static 'js/script.js' %}"></script>
+
+<script type="text/javascript">
+  function toggle(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('active');
+  }
+
+</script>
 
 <!-- for google translate -->
 <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
