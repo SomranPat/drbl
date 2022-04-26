@@ -97,8 +97,42 @@ def ind(request):
 @login_required(login_url='emplog') 
 def attendance(request):
     att = Attendance.objects.all().order_by('-ada','-atim')
-    print(type(att))
-    return render(request, "attendance.html",{'att':att})
+    # print(type(att))
+    site = Site.objects.all()
+    
+    # print(site)
+
+    if request.method =='POST':
+        fromdate = request.POST.get('fromdt')
+        todate = request.POST.get('todt')
+        cst = int(request.POST.get('st'))
+        aDate = datetime.date.fromisoformat(fromdate)
+        bDate = datetime.date.fromisoformat(todate)
+
+        # att = Attendance.objects.filter(site_id=cst)
+        if cst == 9999:
+            att = Attendance.objects.exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+        else:
+            att = Attendance.objects.filter(site_id=cst).exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+        
+        # att = Attendance.objects.exclude(ada__gt=datetime.date(2022,4,4))
+
+        # print(type(month))
+        # for a in att:
+        #     if a.site_id == cst :
+        #         dt = a.ada
+        #         # print(dt.strftime('%m'))
+
+        #         if dt.strftime('%Y')==year and dt.strftime('%m')==month:
+        #             cnt.add(a)
+        # # print(cnt)
+        # att = cnt
+        cont={'site':site, 'att':att}
+        return render(request,"attendance.html",cont )
+
+    cont = {'att':att, 'site':site}
+
+    return render(request, "attendance.html",cont)
 
 
 
@@ -173,8 +207,24 @@ def worker_profile(request,pk):
 
     worker_profile = Worker.objects.get(id=pk)
     att = Attendance.objects.all().order_by('-ada','-atim')
+    site = Site.objects.all()
+    if request.method =='POST':
+        fromdate = request.POST.get('fromdt')
+        todate = request.POST.get('todt')
+        cst = int(request.POST.get('st'))
+        aDate = datetime.date.fromisoformat(fromdate)
+        bDate = datetime.date.fromisoformat(todate)
 
-    context = {'worker_profile':worker_profile, 'att':att}
+        # att = Attendance.objects.filter(site_id=cst)
+        if cst == 9999:
+            att = Attendance.objects.exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+        else:
+            att = Attendance.objects.filter(site_id=cst).exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+        
+        cont={'worker_profile':worker_profile, 'site':site, 'att':att}
+        return render(request,"worker_profile.html",cont )
+
+    context = {'worker_profile':worker_profile, 'att':att, 'site':site}
     return render(request, "worker_profile.html", context)
 
 
@@ -184,7 +234,26 @@ def worker_profile(request,pk):
 def construction_site_profile(request, pk):
     construction_site_profile = Site.objects.get(id=pk)
     att = Attendance.objects.all().order_by('-ada','-atim')
-    context = {'construction_site_profile':construction_site_profile,'att':att}
+    worker = Worker.objects.all()
+    
+    if request.method =='POST':
+        fromdate = request.POST.get('fromdt')
+        todate = request.POST.get('todt')
+        wkr = int(request.POST.get('st'))
+        aDate = datetime.date.fromisoformat(fromdate)
+        bDate = datetime.date.fromisoformat(todate)
+
+        # att = Attendance.objects.filter(site_id=cst)
+        if wkr == 9999:
+            att = Attendance.objects.exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+        else:
+            att = Attendance.objects.filter(worker_id=wkr).exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+        
+        cont={'worker':worker,'construction_site_profile':construction_site_profile,'att':att}
+        return render(request,"site_profile.html",cont )
+
+
+    context = {'worker':worker,'construction_site_profile':construction_site_profile,'att':att}
     return render(request, "site_profile.html", context)
 
 
