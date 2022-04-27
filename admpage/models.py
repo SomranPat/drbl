@@ -79,3 +79,22 @@ class Attendance(models.Model):
 #     def __str__(self):
 #         return str(self.worker)
 
+class Grievance(models.Model):
+    STATUS =(
+        ('Active','Active'),
+        ('Unactive','Unactive'),
+        ('Finished','Finished',),
+    )
+
+    worker = models.ForeignKey(Worker, null = True, on_delete=models.SET_NULL)
+    g_title =  models.CharField(max_length=100,null=True)
+    g_details =  models.CharField(max_length=500,null=True)
+    g_status =  models.CharField(max_length=20,null=True,choices=STATUS)
+    g_date = models.DateTimeField(auto_now_add=True,null=True)
+    sender = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
+
+class complan_chat(models.Model):
+    grieve = models.ForeignKey(Grievance, null = True, on_delete=models.SET_NULL)
+    msg = models.CharField(max_length=500,null=True)
+    sender = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
+    dtim = models.DateTimeField(auto_now_add=True,null=True)

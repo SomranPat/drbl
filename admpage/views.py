@@ -7,7 +7,7 @@ from rbl1.settings import RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY
 
 from .models import *
 from .filter import *
-from .forms import CreateEmpForm,workForm, siteform
+from .forms import Attendform, CreateEmpForm,workForm, siteform
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -98,9 +98,37 @@ def ind(request):
 def attendance(request):
     att = Attendance.objects.all().order_by('-ada','-atim')
     # print(type(att))
-    site = Site.objects.all()
-    worker = Worker.objects.all()
-    # print(site)
+    sites = Site.objects.all()
+    workers = Worker.objects.all()
+
+    if request.method=='POST':
+        work_id = request.POST.get('wrk')
+        work = Worker.objects.get(id = work_id)
+        si_id = request.POST.get('st')
+        si = Site.objects.get(id = si_id)
+        ada = request.POST.get('doe')
+        atim = request.POST.get('dot')
+        Attendance.objects.create(
+            worker = work,
+            site = si,
+            ada = ada,
+            atim = atim
+        )
+        constu = {'workers':workers, 'sites':sites}
+        return render(request, "attendance.html")
+
+    # # print(site)
+    # form = Attendform()
+    # if request.method == 'POST':
+        
+    #     form = Attendform(request.POST, user= request.user)
+    #     if form.is_valid():
+    #         form.save()
+    #         user = form.cleaned_data.get('worker.name')
+    #         messages.success(request, 'Attendance was created for' + user)
+    #         return redirect('attendance')
+
+
 
     if request.method =='POST':
         fromdate = request.POST.get('fromdt')
@@ -109,28 +137,16 @@ def attendance(request):
         aDate = datetime.date.fromisoformat(fromdate)
         bDate = datetime.date.fromisoformat(todate)
 
-        # att = Attendance.objects.filter(site_id=cst)
         if cst == 9999:
             att = Attendance.objects.exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
         else:
             att = Attendance.objects.filter(site_id=cst).exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
         
-        # att = Attendance.objects.exclude(ada__gt=datetime.date(2022,4,4))
-
-        # print(type(month))
-        # for a in att:
-        #     if a.site_id == cst :
-        #         dt = a.ada
-        #         # print(dt.strftime('%m'))
-
-        #         if dt.strftime('%Y')==year and dt.strftime('%m')==month:
-        #             cnt.add(a)
-        # # print(cnt)
-        # att = cnt
-        cont={'site':site, 'att':att, 'worker':worker}
+        
+        cont={'sites':sites, 'att':att, 'workers':workers}
         return render(request,"attendance.html",cont )
 
-    cont = {'att':att, 'site':site, 'worker':worker}
+    cont = {'att':att, 'sites':sites, 'workers':workers}
 
     return render(request, "attendance.html",cont)
 
