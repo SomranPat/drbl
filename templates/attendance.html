@@ -244,6 +244,7 @@
                   <br>
                   <form method="POST" , id="fil">
                     {% csrf_token %}
+                    <input type="hidden" name="form_type" value="fil">
                     <h3 class="filter-text">From :
                       <br>
                       <input class="form-input" type="date" name="fromdt" id="fromdt" required>
@@ -261,7 +262,7 @@
                       <input class="form-input" list="site" type="text" name="st" id="st" placeholder="Enter Site name"
                         required>
                       <datalist id="site">
-                        {% for i in site%}
+                        {% for i in sites%}
                         <option value={{i.id}}>{{i.sname}}</option>
                         {% endfor %}
                         <option value='9999'>all</option>
@@ -280,6 +281,7 @@
 
         <form class="sign-up-form form popup" id="popup" action="" method="POST">
           {% csrf_token %}
+          <input type="hidden" name="form_type" value="popup">
           <h2 class="main-title">Add New Attendance</h2>
           <label class="form-label-wrapper">
             <p class="form-label">Worker Name</p>
@@ -302,7 +304,7 @@
 
             </datalist>
 
-          </label>
+          <!-- </label>
           <label class="form-label-wrapper">
             <p class="form-label">Date of Entry</p>
             <input type = "date" name = "doe">
@@ -310,7 +312,7 @@
             <label class="form-label-wrapper">
               <p class="form-label">Time of entry</p>
               <input type = "time" name = "dot">
-              </label>
+              </label> -->
 
 
 

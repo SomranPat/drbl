@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.db.models import Count
 from django.http import JsonResponse
-import datetime
+from datetime import datetime
 
 
 import razorpay
@@ -102,49 +102,41 @@ def attendance(request):
     workers = Worker.objects.all()
 
     if request.method=='POST':
-        work_id = request.POST.get('wrk')
-        work = Worker.objects.get(id = work_id)
-        si_id = request.POST.get('st')
-        si = Site.objects.get(id = si_id)
-        ada = request.POST.get('doe')
-        atim = request.POST.get('dot')
-        Attendance.objects.create(
-            worker = work,
-            site = si,
-            ada = ada,
-            atim = atim
-        )
-        constu = {'workers':workers, 'sites':sites}
-        return render(request, "attendance.html")
+        if request.POST.get("form_type") == 'popup':
+            from datetime import datetime
+            work_id = request.POST.get('wrk')
+            work = Worker.objects.get(id = work_id)
+            si_id = request.POST.get('st')
+            si = Site.objects.get(id = si_id)
+            ada = datetime.now().date()
+            atim = datetime.now().strftime('%H:%M:%S')
+            print(type(ada), ada)
+            print(type(atim),atim)
+            Attendance.objects.create(
+                worker = work,
+                site = si,
+                ada = ada,
+                atim = atim
+            )
+            att = Attendance.objects.all().order_by('-ada','-atim')
+            constu = {'workers':workers, 'sites':sites, 'att':att}
+            return render(request, "attendance.html",constu)
+        elif request.POST.get("form_type") == 'fil':
+            import datetime
+            fromdate = request.POST.get('fromdt')
+            todate = request.POST.get('todt')
+            cst = int(request.POST.get('st'))
+            aDate = datetime.date.fromisoformat(fromdate)
+            bDate = datetime.date.fromisoformat(todate)
 
-    # # print(site)
-    # form = Attendform()
-    # if request.method == 'POST':
-        
-    #     form = Attendform(request.POST, user= request.user)
-    #     if form.is_valid():
-    #         form.save()
-    #         user = form.cleaned_data.get('worker.name')
-    #         messages.success(request, 'Attendance was created for' + user)
-    #         return redirect('attendance')
-
-
-
-    if request.method =='POST':
-        fromdate = request.POST.get('fromdt')
-        todate = request.POST.get('todt')
-        cst = int(request.POST.get('st'))
-        aDate = datetime.date.fromisoformat(fromdate)
-        bDate = datetime.date.fromisoformat(todate)
-
-        if cst == 9999:
-            att = Attendance.objects.exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
-        else:
-            att = Attendance.objects.filter(site_id=cst).exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+            if cst == 9999:
+                att = Attendance.objects.exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
+            else:
+                att = Attendance.objects.filter(site_id=cst).exclude(ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada','-atim')
         
         
-        cont={'sites':sites, 'att':att, 'workers':workers}
-        return render(request,"attendance.html",cont )
+            cont={'sites':sites, 'att':att, 'workers':workers}
+            return render(request,"attendance.html",cont )
 
     cont = {'att':att, 'sites':sites, 'workers':workers}
 
