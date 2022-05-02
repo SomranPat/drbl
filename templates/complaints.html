@@ -180,148 +180,94 @@
     <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
       <div class="container">
-        <article class="white-block">
-            <h2 class="container-title">Filter</h2>
-            <form>
-              <h3>From : 
-                <input type="date" id="start-date" name="start-date">
-                To : 
-                <input type="date" id="end-date" name="end-date">
-              </h3>
-              <br>
-              <h3>
-                Construction Site :
-                <select id="construction-site" placeholder="Choose Option">
-                  <option hidden >Select Construction Site</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </h3>
-              <br>
-              <button class="button1 primary-default-btn transparent-btn">Submit</button>
-            </form> 
-        </article>
-      </div>
-      <div class="container">
-      <div class="users-table table-wrapper">
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="users-table table-wrapper">
               <table class="posts-table">
                 <thead>
                   <tr class="users-table-info">
                     <th></th>
-                    <th>Name</th>
-                    <th>Construction Site</th>
+                    <th>Title</th>
+                    <th>Worker</th>
+                    <th>Status</th>
                     <th>Date</th>
-                    <th>Time</th>
                   </tr>
                 </thead>
                 <tbody>
+
+                  {% for a in com %}
                   <tr>
                     
                     <td>
-                      <div class="pages-table-img">
-                        <!-- <picture><source srcset="{% static 'img/avatar/avatar-face-05.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-face-05.png' %}" alt="User Name"></picture>
-                         -->
+                      <div class="stat-cards-icon-workers-list primary">
+                        <i data-feather="alert-circle" aria-hidden="true"></i>
                       </div>
                     </td>
-                    <td>Harsh Tiwari</td>
+
+
                     <td>
-                      Borivali West
+                      <a href="{% url 'view_complaint' a.id %}" >
+                      {{a.g_title}}
+                      </a>
                     </td>
+                    <td>{{a.worker.name}}</td>
+                    <td>{{a.g_status}}</td>
+                    <td>{{a.g_date}}</td>
                     
-                    <td>17.04.2021</td>
-                    <td>09:27 AM</td>
                   </tr>
+                  {% endfor %}
+
                   <tr>
-                    
-                    <td>
-                      <div class="pages-table-img">
-                        <!-- <picture><source srcset="{% static 'img/avatar/avatar-face-03.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-face-03.png' %}" alt="User Name"></picture>
-                       -->
-                      </div>
-                    </td>
-                    <td>Ankit Yadav</td>
-                    <td>
-                      Borivali West
-                    </td>
-                    <td>23.04.2021</td>
-                    <td>09:31 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="pages-table-img">
-                        <!-- <picture><source srcset="{% static 'img/avatar/avatar-face-05.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-face-05.png' %}" alt="User Name"></picture> -->
-                      </div>
-                    </td>
-                    <td>Tanmay Shukla</td>
-                    <td>
-                      Borivali West
-                    </td>
-                    
-                    <td>17.04.2021</td>
-                    <td>09:23 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="pages-table-img">
-                        <!-- <picture><source srcset="{% static 'img/avatar/avatar-face-05.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-face-05.png' %}" alt="User Name"></picture>
-                         -->
-                      </div>
-                    </td>
-                    <td>Pratik Thakur</td>
-                    <td>
-                      Malad West
-                    </td>
-                    
-                    <td>17.04.2021</td>
-                    <td>09:28 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="pages-table-img">
-                        <!-- <picture><source srcset="{% static 'img/avatar/avatar-face-03.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-face-03.png' %}" alt="User Name"></picture>
-                         -->
-                      </div>
-                    </td>
-                    <td>Niraj Gupta</td>
-                    <td>
-                      Malad West
-                    </td>
-                    <td>17.04.2021</td>
-                    <td>09:29 AM</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>
-                      <div class="pages-table-img">
-                        <!-- <picture><source srcset="{% static 'img/avatar/avatar-face-03.webp' %}" type="image/webp"><img src="{% static 'img/avatar/avatar-face-03.png' %}" alt="User Name"></picture>
-                         -->
-                      </div>
-                    </td>
-                    <td>Karan Yadav</td>
-                    <td>
-                      Malad West
-                    </td>
-                    <td>17.04.2021</td>
-                    <td>09:26 AM</td>
-                  </tr>
-                  <tr>
-                    
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>View All</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
+        
+
+
+        <div class="col-lg-3">
+          <article class="white-block">
+            <h2 class="main-title">Filter</h2>
+            <br>
+            <form method="POST" , id="fil">
+              {% csrf_token %}
+              <input type="hidden" name="form_type" value="fil">
+              <h3 class="filter-text">From :
+                <br>
+                <input class="form-input" type="date" name="fromdt" id="fromdt" required>
+
+              </h3>
+              <h3 class="filter-text">
+                To :
+                <br>
+                <input class="form-input" type="date" name="todt" id="todt" required>
+
+              </h3>
+              <h3 class="filter-text">
+                Construction Site :
+                <br>
+                <input class="form-input" list="site" type="text" name="st" id="st" placeholder="Enter Site name"
+                  required>
+                <datalist id="site">
+                  {% for i in sites%}
+                  <option value={{i.id}}>{{i.sname}}</option>
+                  {% endfor %}
+                  <option value='9999'>all</option>
+                </datalist>
+              </h3>
+              <button class="button1 primary-default-btn transparent-btn">Submit</button>
+            </form>
+
+          </article>
+        </div>
+        </div>
+      </div>
     </main>
     <!-- ! Footer -->
     <footer class="footer">

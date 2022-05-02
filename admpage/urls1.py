@@ -24,7 +24,10 @@ urlpatterns = [
     path("logout", views.logoutuser, name ="logout"),    
     path('empreg',views.empreg, name = "empreg"),
     path('mainind',views.mainind, name ='mainind' ),
+    path('g2',views.g2, name = 'g2'),
+    path('consg1', views.consg1, name = 'consg1'),
     path('payment',views.payment, name = 'payment'),
+    path('view_complaint/<str:pk>',views.view_complaint, name='view_complaint'),
     
 
 

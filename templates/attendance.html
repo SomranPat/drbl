@@ -207,10 +207,12 @@
                           </div>
                         </td>
 
-                        <td><a href="{% url 'worker_profile' a.worker.id %}">{{a.worker.name}}</a></td>
+
+                        <!-- <a href="{% url 'worker_profile' a.worker.id %}"></a> -->
+                        <td>{{a.worker.name}}</td>
                         <td>
-                          <a href="{% url 'construction_site_profile' a.site.id %}">
-                            {{a.site.sname}}</a>
+                          <!-- <a href="{% url 'construction_site_profile' a.site.id %}"> -->
+                            {{a.site.sname}}
                         </td>
 
                         <td>{{a.ada}}</td>

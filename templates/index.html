@@ -272,6 +272,9 @@
           function buildchart(){
             var chartdata={
               "type":"bar",
+              "title": {
+                "text": "Cumulative Attendance"
+              },
               "scale-x":{
                 "values":state.items
               },
@@ -299,14 +302,88 @@
 
         </script>
 
+        <script>
+          
+          var stateg2 ={
+            'cst':[],
+            'count':[],
+          }
+
+          var dataURL=`/g2`
+          $.ajax({
+            method:'GET',
+            url:dataURL,
+            success: function(response){
+              console.log('RESPONSE:', response)
+              for (var i in response){
+                var key = Object.keys(response[i])[0]
+                var value = Object.values(response[i])[0]
+
+                stateg2.cst.push(key)
+                stateg2.count.push(value)
+
+              }
+              console.log('STATE:',stateg2)
+              buildg2chart() 
+
+            }
+          }
+
+          )
+
+
+          function buildg2chart(){
+            var g2data={
+              "type":"bar",
+              "title": {
+                "text": "Today's Site Attendance"
+              },
+              "scale-x":{
+                "values":stateg2.cst
+              },
+              
+              "series":[
+                {
+                    "values":stateg2.count
+                }
+              ]
+            }
+  
+            zingchart.render({
+              id: "g2chart",
+              data: g2data,
+  
+  
+            });
+
+          }
+
+
+          
+         
+
+
+        </script>
 
 
         <div class="row">
+          <div class="col-md-6">
+            <article class="white-block">
+            <div id ="trychart"></div>
+          </article>
+          </div>
+
+          <div class="col-md-6">
+          <article class="white-block">
+            <div id ="g2chart"></div>
+          </article>
+          </div>
+
+
           <div class="col-lg-9">
             
             <!-- graph -->
-            <div id ="trychart"></div>
-
+            
 
 
             <div class="users-table table-wrapper">
