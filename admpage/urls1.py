@@ -30,7 +30,7 @@ urlpatterns = [
     path('view_complaint/<str:pk>',views.view_complaint, name='view_complaint'),
     
 
-
+    path('worlog',views.worlog, name="worlog"),
     path('mobindex',views.mobindex, name="mobindex"),
     path('mobcomplaint',views.mobcomplaint, name="mobcomplaint"),
 

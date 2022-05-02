@@ -24,6 +24,10 @@ import datetime
 import razorpay
 
 
+from .decorators import allowed_users,admin_only
+from django.contrib.auth.models import Group 
+
+
 # Create your views here.
 def rou(request):
     sitecnt = []
@@ -90,6 +94,7 @@ def g2(request):
 
 
 @login_required(login_url='emplog')
+@admin_only
 def ind(request):
     att = Attendance.objects.all().order_by('-ada', '-atim')[:10]
     con = Site.objects.all()[:6]
@@ -106,6 +111,7 @@ def ind(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def attendance(request):
     att = Attendance.objects.all().order_by('-ada', '-atim')
     # print(type(att))
@@ -156,6 +162,7 @@ def attendance(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def workers(request):
     work = Worker.objects.all()
 
@@ -177,6 +184,7 @@ def workers(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def construction(request):
     site = Site.objects.all()
     mfil = sitefilter(request.GET, queryset=site)
@@ -196,6 +204,7 @@ def construction(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def paysalary(request):
     sal = Worker.objects.all()
 
@@ -203,6 +212,7 @@ def paysalary(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def complaints(request):
     com = Grievance.objects.all().order_by('-g_date')
 
@@ -211,6 +221,7 @@ def complaints(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def view_complaint(request, pk):
     com = Grievance.objects.get(id=pk)
     
@@ -237,6 +248,7 @@ def view_complaint(request, pk):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def worker_profile(request, pk):
 
     worker_profile = Worker.objects.get(id=pk)
@@ -277,6 +289,7 @@ def consg1(request):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def construction_site_profile(request, pk):
     construction_site_profile = Site.objects.get(id=pk)
     att = Attendance.objects.all().order_by('-ada', '-atim')
@@ -307,6 +320,7 @@ def construction_site_profile(request, pk):
 
 
 @login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def calculate_salary(request, pk):
     cs = Worker.objects.get(id=pk)
     att = Attendance.objects.all().order_by('-ada')
@@ -388,16 +402,21 @@ def logoutuser(request):
     logout(request)
     return redirect('emplog')
 
-
+@login_required(login_url='emplog')
+@allowed_users(allowed_roles=['admin'])
 def empreg(request):
     form = CreateEmpForm()
 
     if request.method == 'POST':
         form = CreateEmpForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for' + user)
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            group = Group.objects.get(name='worker')
+            user.groups.add(group)
+
+
+            messages.success(request, 'Account was created for' + username)
 
             return redirect('ind')
 
@@ -405,6 +424,27 @@ def empreg(request):
     return render(request, "empreg.html", context)
 
     # def reset_pass(request):
+
+
+def worlog(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('ind')
+
+        else:
+            messages.info(request, 'Username or Password is incorrect')
+
+    conte = {}
+
+    return render(request, "emplog.html", conte)
+
+
+
 
 
 def mobindex(request):
