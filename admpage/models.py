@@ -2,6 +2,7 @@ from pyexpat import model
 from unicodedata import category
 from django.db import models
 from sympy import true
+from django.contrib.auth.models import User
 
 
 
@@ -82,19 +83,20 @@ class Attendance(models.Model):
 class Grievance(models.Model):
     STATUS =(
         ('Active','Active'),
-        ('Unactive','Unactive'),
+        ('Inprogress','Inprogress'),
+        ('Invalid','Invalid'),
         ('Finished','Finished',),
     )
 
     worker = models.ForeignKey(Worker, null = True, on_delete=models.SET_NULL)
     g_title =  models.CharField(max_length=100,null=True)
-    g_details =  models.CharField(max_length=500,null=True)
+    g_details =  models.CharField(max_length=2000,null=True)
     g_status =  models.CharField(max_length=20,null=True,choices=STATUS)
-    g_date = models.DateTimeField(auto_now_add=True,null=True)
-    sender = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
+    g_date = models.DateField(auto_now_add=True,null=True)
 
 class complan_chat(models.Model):
     grieve = models.ForeignKey(Grievance, null = True, on_delete=models.SET_NULL)
     msg = models.CharField(max_length=500,null=True)
-    sender = models.ForeignKey(Employe, null = True, on_delete=models.SET_NULL)
-    dtim = models.DateTimeField(auto_now_add=True,null=True)
+    sender = models.CharField(max_length=500, null = True)
+    cdate = models.DateField(auto_now_add=True,null=True)
+    ctim = models.TimeField(auto_now_add=True, null=True)

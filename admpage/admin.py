@@ -6,6 +6,8 @@ admin.site.register(Site)
 admin.site.register(Worker)
 admin.site.register(Employe)
 admin.site.register(Attendance)
+admin.site.register(Grievance)
+admin.site.register(complan_chat)
 # admin.site.register(Salary)
 
 
