@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WMS | Complaint</title>
+  <title>WMS | Attendance</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="{% static 'img/svg/logo.svg' %}" type="image/x-icon">
   <!-- Custom styles -->
@@ -42,7 +42,7 @@
               <a class="" href="mobindex"><span class="icon home" aria-hidden="true"></span>Home</a>
             </li>
             <li>
-              <a class=" " href="mobattendance">
+              <a class="active" href="mobattendance">
                 <span class="icon document" aria-hidden="true"></span>Attendance
               </a>
             </li>
@@ -54,7 +54,7 @@
             </li>
 
             <li>
-              <a class="active" href="mobcomplaint">
+              <a class="" href="mobcomplaint">
                 <span class="icon message" aria-hidden="true"></span>Complaints
               </a>
             </li>
@@ -107,7 +107,7 @@
         <div class="container main-nav">
           <div class="main-nav-start">
             <div class="search-wrapper">
-              <h2 class="main-title">Complaint Page</h2>
+              <h2 class="main-title">Attendance Page</h2>
             </div>
           </div>
           <div class="main-nav-end">
@@ -227,9 +227,37 @@
           <!-- <h2 class="main-title">Dashboard</h2> -->
           <div class="row stat-cards">
             <div class="col-lg-3">
-              <article class="white-block">
-                <button class="btn primary-default-btn transparent-btn">Send Complaint</button>
-              </article>
+                <article class="white-block">
+                    <h3>Filter</h3>
+                    <br>
+                    <form method="POST", id="fil">
+                      {% csrf_token %}
+                      <h3 class="filter-text">From :
+                        <br> 
+                        <input class="form-input" type="date" name="fromdt" id="fromdt" required>
+                            
+                        </h3>
+                        <h3 class="filter-text">
+                        To : 
+                        <br>
+                        <input class="form-input" type="date" name="todt" id="todt" required>
+                        
+                      </h3>
+                      <h3 class="filter-text">
+                        Construction Site :
+                        <br>
+                        <input class="form-input" list="site" type="text" name="st" id="st" placeholder="Enter Site name" required>
+                        <datalist id="site">
+                          {% for i in site%}
+                            <option value ={{i.id}}>{{i.sname}}</option>
+                          {% endfor %}
+                          <option value ='9999'>all</option>
+                        </datalist>
+                      </h3>
+                      <button class="button1 primary-default-btn transparent-btn">Submit</button>
+                    </form>
+                     
+                  </article>
             </div>
             
           </div>
@@ -238,17 +266,17 @@
             <div class="col-lg-3">
             <article class="white-block">
               <div class="top-cat-title">
-                <h3>Complaints</h3>
+                <h3>Attendance</h3>
               </div>
               <ul class="top-cat-list">
-                {% for g in gri %}
+                {% for g in att %}
                 <li>
-                  <a href="{% url 'mobviewcomplaint' g.id %}">
+                  <a href="##">
                     <div class="top-cat-list__title">
-                      {{g.g_title}} <span>{{g.g_date}}</span>
+                      {{g.site.sname}} <span>{{g.ada}}</span>
                     </div>
                     <div class="top-cat-list__subtitle">
-                      Status: {{g.g_status}}
+                      {{g.site.city}} <span class="primary">{{g.atim}}</span>
                     </div>
                   </a>
                 </li>

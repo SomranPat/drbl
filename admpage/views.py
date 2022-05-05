@@ -326,18 +326,17 @@ def calculate_salary(request, pk):
     att = Attendance.objects.all().order_by('-ada')
 
     if request.method == 'POST':
-        month = request.POST.get('mth')
-        year = request.POST.get('yr')
-        cnt = 0
-        # print(type(month))
+        import datetime
+        fromdate = request.POST.get('fromdt')
+        todate = request.POST.get('todt')
+        aDate = datetime.date.fromisoformat(fromdate)
+        bDate = datetime.date.fromisoformat(todate)
+        cnt=0
+        att = Attendance.objects.filter(worker_id=cs.id).exclude(ada__lt=aDate).exclude(ada__gt=bDate)
+        
         for a in att:
-            if a.worker_id == cs.id:
-                dt = a.ada
-                # print(dt.strftime('%m'))
+	        cnt += 1
 
-                if dt.strftime('%Y') == year and dt.strftime('%m') == month:
-                    cnt += 1
-        # print(cnt)
         amt = cnt*cs.spd
         cont = {'cnt': cnt, 'amt': amt, 'cs': cs, 'att': att}
         return render(request, "calculate.html", cont)
@@ -450,13 +449,115 @@ def worlog(request):
 def mobindex(request):
     wu = request.user.id
     work = Worker.objects.get(w_user =wu)
-    print(work.spd)
+    
     cont ={'wu':wu, 'work':work}
     return render(request, 'mobindex.html', cont)
 
+def mobcalculate(request):
+    wu = request.user.id
+    work = Worker.objects.get(w_user =wu)
+    
+    if request.method == 'POST':
+        import datetime
+        fromdate = request.POST.get('fromdt')
+        todate = request.POST.get('todt')
+        aDate = datetime.date.fromisoformat(fromdate)
+        bDate = datetime.date.fromisoformat(todate)
+        cnt=0
+        att = Attendance.objects.filter(worker_id=work.id).exclude(ada__lt=aDate).exclude(ada__gt=bDate)
+        for a in att:
+	        cnt += 1
+        amt = cnt*work.spd
+        cont = {'cnt': cnt, 'amt': amt, 'work': work, 'att': att}
+        return render(request, "mobcalculate.html", cont)
+
+    cont ={'wu':wu, 'work':work}
+    return render(request, 'mobcalculate.html', cont)
 
 def mobcomplaint(request):
-    return render(request, "mobcomplaint.html")
+    wu = request.user.id
+    work = Worker.objects.get(w_user =wu)
+    gri = Grievance.objects.filter(worker=work.id).order_by('-g_date')
+    
+    cont ={'gri':gri }
+    return render(request, "mobcomplaint.html", cont)
+
+def mobsendcomplaint(request):
+    wu = request.user.id
+    work = Worker.objects.get(w_user =wu)
+
+    if request.method == 'POST':
+        from datetime import datetime
+        titl = request.POST.get('tit')
+        detl = request.POST.get('det')
+        stat = 'Active'
+        gdate = datetime.now().date()
+        
+
+        print(titl, detl, stat, gdate)
+        Grievance.objects.create(
+            worker = work,
+            g_title =  titl,
+            g_details =  detl,
+            g_status =  stat,
+            g_date =  gdate
+        )
+        return redirect('mobcomplaint')
+    
+    return render(request, "mobsendcomplaint.html")
+
+def mobviewcomplaint(request, pk):
+    com = Grievance.objects.get(id=pk)
+    wu = request.user.id
+    work = Worker.objects.get(w_user =wu)
+
+    if request.method == 'POST':
+        from datetime import datetime
+        mes = request.POST.get('mes')
+        gre = Grievance.objects.get(id=pk)
+        sen = request.POST.get('sender')
+        dat = datetime.now().date()
+        tim = datetime.now().strftime('%H:%M:%S')
+
+        complan_chat.objects.create(
+            grieve=gre,
+            msg=mes,
+            sender=sen,
+            cdate=dat,
+            ctim=tim
+        )
+    
+    cht = complan_chat.objects.filter(grieve = pk).order_by('cdate','ctim')
+    
+    cont ={'com': com, 'cht':cht, 'work':work}
+    return render(request, "mobviewcomplaint.html", cont)
+
+def mobattendance(request):
+    wu = request.user.id
+    work = Worker.objects.get(w_user =wu)
+    att = Attendance.objects.filter(worker=work.id).order_by('-ada',  '-atim')
+    print(att)
+    site = Site.objects.all()
+    if request.method == 'POST':
+        fromdate = request.POST.get('fromdt')
+        todate = request.POST.get('todt')
+        cst = int(request.POST.get('st'))
+        aDate = datetime.date.fromisoformat(fromdate)
+        bDate = datetime.date.fromisoformat(todate)
+
+        # att = Attendance.objects.filter(site_id=cst)
+        if cst == 9999:
+            att = Attendance.objects.filter(worker=work.id).exclude(ada__lt=aDate).exclude(
+                ada__gt=bDate).order_by('-ada', '-atim')
+        else:
+            att = Attendance.objects.filter(site_id=cst, worker=work.id).exclude(
+                ada__lt=aDate).exclude(ada__gt=bDate).order_by('-ada', '-atim')
+
+        cont = {'site': site, 'att': att}
+        return render(request, "mobattendance.html", cont)
+
+    cont ={'site': site, 'att':att }
+    return render(request, "mobattendance.html", cont)
 
 
 def payment(request):
