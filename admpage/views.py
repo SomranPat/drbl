@@ -448,7 +448,11 @@ def worlog(request):
 
 
 def mobindex(request):
-    return render(request, 'mobindex.html')
+    wu = request.user.id
+    work = Worker.objects.get(w_user =wu)
+    print(work.spd)
+    cont ={'wu':wu, 'work':work}
+    return render(request, 'mobindex.html', cont)
 
 
 def mobcomplaint(request):

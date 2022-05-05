@@ -43,6 +43,7 @@ class Worker(models.Model):
     
     lsd = models.DateTimeField(auto_now_add=True,null=True)
     category = models.CharField(max_length=20,null=True,choices=CATE)
+    w_user = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
     name = models.CharField(max_length=20,null=True)    
     spd = models.FloatField(null=True)
     age = models.CharField(max_length=20,null=True)
