@@ -39,26 +39,26 @@
         <div class="sidebar-body">
           <ul class="sidebar-body-menu">
             <li>
-              <a class="" href="mobindex"><span class="icon home" aria-hidden="true"></span>Home</a>
-            </li>
-            <li>
-              <a class=" " href="mobattendance">
-                <span class="icon document" aria-hidden="true"></span>Attendance
-              </a>
-            </li>
-            
-            <li>
-              <a class="" href="mobcalculate">
-                <span class="icon wallet" aria-hidden="true"></span>Calculate Salary
-              </a>
-            </li>
-
-            <li>
-              <a class="active" href="mobcomplaint">
-                <span class="icon message" aria-hidden="true"></span>Complaints
-              </a>
-            </li>
-
+                <a class="" href="mobindex"><span class="icon home" aria-hidden="true"></span>Home</a>
+              </li>
+              <li>
+                <a class=" " href="mobattendance">
+                  <span class="icon document" aria-hidden="true"></span>Attendance
+                </a>
+              </li>
+              
+              <li>
+                <a class="" href="mobcalculate">
+                  <span class="icon wallet" aria-hidden="true"></span>Calculate Salary
+                </a>
+              </li>
+  
+              <li>
+                <a class="active" href="mobcomplaint">
+                  <span class="icon message" aria-hidden="true"></span>Complaints
+                </a>
+              </li>
+              
             <!-- for sidebar toggle pls do not touch -->
             <li>
               <a class="show-cat-btn" href="##">
@@ -225,37 +225,33 @@
       <main class="main users chart-page" id="skip-target">
         <div class="container">
           <!-- <h2 class="main-title">Dashboard</h2> -->
-          <div class="row stat-cards">
-            <div class="col-lg-3">
-              <article class="white-block">
-                <button class="btn primary-default-btn transparent-btn">Send Complaint</button>
-              </article>
-            </div>
-            
-          </div>
+          
           
           <div class="row">
             <div class="col-lg-3">
-            <article class="white-block">
-              <div class="top-cat-title">
-                <h3>Complaints</h3>
-              </div>
-              <ul class="top-cat-list">
-                {% for g in gri %}
-                <li>
-                  <a href="{% url 'mobviewcomplaint' g.id %}">
-                    <div class="top-cat-list__title">
-                      {{g.g_title}} <span>{{g.g_date}}</span>
-                    </div>
-                    <div class="top-cat-list__subtitle">
-                      Status: {{g.g_status}}
-                    </div>
-                  </a>
-                </li>
-                {% endfor %}
-                
-              </ul>
-            </article>
+                <article class="white-block">
+                    <h2 class="main-title">New Complaint</h2>
+                    <br>
+                    <form method="POST", id="fil">
+                      {% csrf_token %}
+                      <h3 class="filter-text">Title :
+                        <br> 
+                        <input class="form-input" type="text" name="tit" id="tit" required>
+                            
+                        </h3>
+                        <h3 class="filter-text">
+                        Details : 
+                        <br>
+                        <textarea style="border-radius: 8px; border-width: 0; margin-bottom: 15px; padding: 5px 16px; height: 300px; background: #eff0f6;" name="det" id="det" cols="25" ></textarea>
+                        
+                      </h3>
+                      
+                      <button class="button1 primary-default-btn transparent-btn">Submit</button>
+                    </form>
+                     
+                  </article>
+        
+        
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WMS | Complaint</title>
+  <title>WMS | Calculate</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="{% static 'img/svg/logo.svg' %}" type="image/x-icon">
   <!-- Custom styles -->
@@ -48,13 +48,13 @@
             </li>
             
             <li>
-              <a class="" href="mobcalculate">
+              <a class="active" href="mobcalculate">
                 <span class="icon wallet" aria-hidden="true"></span>Calculate Salary
               </a>
             </li>
 
             <li>
-              <a class="active" href="mobcomplaint">
+              <a class="" href="mobcomplaint">
                 <span class="icon message" aria-hidden="true"></span>Complaints
               </a>
             </li>
@@ -107,7 +107,7 @@
         <div class="container main-nav">
           <div class="main-nav-start">
             <div class="search-wrapper">
-              <h2 class="main-title">Complaint Page</h2>
+              <h2 class="main-title">Calculate Page</h2>
             </div>
           </div>
           <div class="main-nav-end">
@@ -225,39 +225,45 @@
       <main class="main users chart-page" id="skip-target">
         <div class="container">
           <!-- <h2 class="main-title">Dashboard</h2> -->
-          <div class="row stat-cards">
-            <div class="col-lg-3">
-              <article class="white-block">
-                <button class="btn primary-default-btn transparent-btn">Send Complaint</button>
-              </article>
-            </div>
-            
-          </div>
+          <article class="white-block">
+            <h4>Last Salary Paid on : <br><br>{{work.lsd}}</h4>
+          </article>
+
+          <article class="white-block">
+            <h3 class="container-title">Calculate Salary</h3>
+            <form method="POST" , id = "salcal">
+              {% csrf_token %}
+              
+              <h4>Salary per day : {{work.spd}}/-</h4>
+              <br><br>
+              <h4>
+                From :<br>
+                <input class="form-input" type="date" name="fromdt" id="fromdt" required>
+                <br>
+                To: <br>
+                <input class="form-input" type="date" name="todt" id="todt" required>
+
+
+              </h4>
+              <br>
+              <h4>
+                Number of days : {{cnt}}
+              </h4>
+              <br>
+              <br>
+              <h4>
+                Calculated Salary : {{amt}}
+              </h4>
+              <br>
+              <br>
+
+              <button class="button1 primary-default-btn transparent-btn"> Calculate </button>
+              <br>
+              
+            </form>
+          </article>
           
-          <div class="row">
-            <div class="col-lg-3">
-            <article class="white-block">
-              <div class="top-cat-title">
-                <h3>Complaints</h3>
-              </div>
-              <ul class="top-cat-list">
-                {% for g in gri %}
-                <li>
-                  <a href="{% url 'mobviewcomplaint' g.id %}">
-                    <div class="top-cat-list__title">
-                      {{g.g_title}} <span>{{g.g_date}}</span>
-                    </div>
-                    <div class="top-cat-list__subtitle">
-                      Status: {{g.g_status}}
-                    </div>
-                  </a>
-                </li>
-                {% endfor %}
-                
-              </ul>
-            </article>
-            </div>
-          </div>
+          
         </div>
         
 

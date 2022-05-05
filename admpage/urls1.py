@@ -32,7 +32,11 @@ urlpatterns = [
 
     path('worlog',views.worlog, name="worlog"),
     path('mobindex',views.mobindex, name="mobindex"),
+    path('mobcalculate',views.mobcalculate, name="mobcalculate"),
     path('mobcomplaint',views.mobcomplaint, name="mobcomplaint"),
+    path('mobsendcomplaint',views.mobsendcomplaint, name="mobsendcomplaint"),
+    path('mobviewcomplaint/<str:pk>',views.mobviewcomplaint, name="mobviewcomplaint"),
+    path('mobattendance',views.mobattendance, name="mobattendance"),
 
     
     path('reset_pass', av.PasswordResetView.as_view(
