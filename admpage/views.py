@@ -247,6 +247,31 @@ def view_complaint(request, pk):
     return render(request, "view_complaint.html", ontext)
 
 
+def workg1(request, pk):
+    # print(pk)
+    stcnt = []
+    co = Worker.objects.get(id=pk)
+    from datetime import datetime
+    reg = Attendance.objects.filter(worker=co.id).values('ada', 'atim').order_by('-ada')[:10]
+
+    # print(reg)
+    for j in range(len(reg)):
+        d = reg[j]['ada']
+        t = reg[j]['atim']
+        # t.strftime('%d/%m/%Y')
+        # dt.appen(reg[j]['c'])
+        t = t.hour+t.minute/60.0
+        stcnt.append({d.strftime('%d/%m/%Y'): t})
+    
+    # feg = Attendance.objects.filter(ada=datetime.now().date()).values('site').annotate(
+    #     c=Count('site_id'))
+    # for j in range(len(feg)):
+    #     stcnt.append({feg[j]['site']: feg[j]['c']})
+    # print(stcnt)
+    return JsonResponse(stcnt, safe=False)
+
+
+
 @login_required(login_url='emplog')
 @allowed_users(allowed_roles=['admin'])
 def worker_profile(request, pk):
@@ -276,15 +301,27 @@ def worker_profile(request, pk):
     return render(request, "worker_profile.html", context)
 
 
-def consg1(request):
+def consg1(request, pk):
     # print(pk)
     stcnt = []
+    co = Site.objects.get(id=pk)
     from datetime import datetime
-    feg = Attendance.objects.filter(ada=datetime.now().date()).values('site').annotate(
-        c=Count('site_id'))
-    for j in range(len(feg)):
-        stcnt.append({feg[j]['site']: feg[j]['c']})
-    print(stcnt)
+    reg = Attendance.objects.filter(site=co.id).values('ada').annotate(
+        c=Count('ada')).order_by('-ada')[:10]
+
+    # print(reg)
+
+    for j in range(len(reg)):
+        t = reg[j]['ada']
+        # t.strftime('%d/%m/%Y')
+        # dt.appen(reg[j]['c'])
+        stcnt.append({t.strftime('%d/%m/%Y'): reg[j]['c']})
+
+    # feg = Attendance.objects.filter(ada=datetime.now().date()).values('site').annotate(
+    #     c=Count('site_id'))
+    # for j in range(len(feg)):
+    #     stcnt.append({feg[j]['site']: feg[j]['c']})
+    # print(stcnt)
     return JsonResponse(stcnt, safe=False)
 
 
