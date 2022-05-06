@@ -25,7 +25,8 @@ urlpatterns = [
     path('empreg',views.empreg, name = "empreg"),
     path('mainind',views.mainind, name ='mainind' ),
     path('g2',views.g2, name = 'g2'),
-    path('consg1', views.consg1, name = 'consg1'),
+    path('consg1/<str:pk>', views.consg1, name = 'consg1'),
+    path('workg1/<str:pk>', views.workg1, name = 'workg1'),
     path('payment',views.payment, name = 'payment'),
     path('view_complaint/<str:pk>',views.view_complaint, name='view_complaint'),
     

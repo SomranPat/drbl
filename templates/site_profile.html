@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +19,7 @@
 </head>
 
 <body>
+  
   <div class="layer"></div>
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
@@ -177,62 +183,7 @@
   </div>
 </nav>
     <!-- ! Main -->
-    <script>
-          
-      var stateg2 ={
-        'cst':[],
-        'count':[],
-      }
-
-      var dataURL=`/consg1`
-      $.ajax({
-        method:'GET',
-        url:dataURL,
-        success: function(response){
-          console.log('RESPONSE:', response)
-          for (var i in response){
-            var key = Object.keys(response[i])[0]
-            var value = Object.values(response[i])[0]
-
-            stateg2.cst.push(key)
-            stateg2.count.push(value)
-
-          }
-          console.log('STATE:',stateg2)
-          buildg2chart() 
-
-        }
-      }
-
-      )
-
-
-      function buildg2chart(){
-        var g2data={
-          "type":"bar",
-          "title": {
-            "text": "Today's Site Attendance"
-          },
-          "scale-x":{
-            "values":stateg2.cst
-          },
-          
-          "series":[
-            {
-                "values":stateg2.count
-            }
-          ]
-        }
-
-        zingchart.render({
-          id: "g1chart",
-          data: g2data,
-
-
-        });
-
-      }
-    </script>
+  
 
     <main class="main users chart-page" id="skip-target">
       <div class="container">
@@ -271,16 +222,76 @@
           </div>
 
         </div>
-        
+      
+        <script>
+          
+          var state ={
+            'items':[],
+            'values':[],
+          }
+
+          var dataURL=`/consg1/{{construction_site_profile.id}}`
+          $.ajax({
+            method:'GET',
+            url:dataURL,
+            success: function(response){
+              console.log('RESPONSE:', response)
+              for (var i in response){
+                var key = Object.keys(response[i])[0]
+                var value = Object.values(response[i])[0]
+
+                state.items.push(key)
+                state.values.push(value)
+
+              }
+              console.log('STATE:',state)
+              buildchart() 
+
+            }
+          }
+
+          )
+
+
+          function buildchart(){
+            var chartdata={
+              "type":"bar",
+              "title": {
+                "text": "Workers on Site"
+              },
+              "scale-x":{
+                "values":state.items
+              },
+              
+              "series":[
+                {
+                    "values":state.values
+                }
+              ]
+            }
+  
+            zingchart.render({
+              id: "trychart",
+              data: chartdata,
+  
+  
+            });
+
+          }
+
+        </script>
         
       <div class="row">
+        <div class="col-md-12">
+          <article class="white-block">
+          <div id ="trychart"></div>
+        </article>
+        </div>
         
-        
-        <div id="g1chart"></div>
-
-
 
         <div class="col-lg-9">
+          
+          <div  style="height:550px;border:1px solid #ccc;overflow:auto;">
           <div class="users-table table-wrapper">
             <table class="posts-table">
               <thead>
@@ -318,6 +329,7 @@
                 </tr>
               </tbody>
             </table>
+          </div>
           </div>
         </div>
         <div class="col-lg-3">
